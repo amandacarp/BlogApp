@@ -7,6 +7,7 @@ const Navbar = () => {
         <nav className="navbar border-bottom border-light sticky-top mb-4">
             <a> Blogs</a>
             <Link to='/'>Go Home</Link>
+            <Link to='/blogs/post'>Post a Blog</Link>
         </nav>
     )
 }
