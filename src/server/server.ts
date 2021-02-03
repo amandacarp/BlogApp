@@ -2,7 +2,7 @@ import * as express from 'express';
 import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as morgan from 'morgan';
-import apiRouter from './routes';
+import apiRouter from './routes/api';
 import * as path from 'path'
 
 const app = express();

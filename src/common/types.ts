@@ -9,10 +9,23 @@ export interface MySQLResponse {
 	changedRows: number;
 }
 
-export interface BlogsTable {
-    id?: string;
+export interface Blog {
+    id?: number;
 	title?: string
     content?: string;
-    authorid?: string;
+    authorid?: Author["id"];
 	_created?: Date;
+}
+
+export interface Author {
+	id: number,
+	name: string,
+	email: string,
+	_created: Date;
+}
+
+export interface BlogTags {
+	tagname: string,
+	blogid: number,
+	tagid: number
 }

@@ -2,14 +2,14 @@ import moment from 'moment';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { IBlog } from './Blogs'
 import Swal from 'sweetalert2'
+import { Blog } from '../../common/types';
 
 export interface singleBlogProps extends RouteComponentProps<{ id: string }> { };
 
 
 const EditBlog: React.FC<singleBlogProps> = ({ history, match: { params: { id } } }) => {
-    const [blog, setSingleBlog] = useState<IBlog>(null);
+    const [blog, setSingleBlog] = useState<Blog>(null);
 
     const getSingleBlog = async () => {
         const r = await fetch (`/api/blogs/${id}`);

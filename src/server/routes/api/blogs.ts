@@ -1,5 +1,6 @@
 import * as express from 'express';
-import db from '../db'
+import db from '../../db'
+import {Blog, Author} from '../../../common/types'
 
 const router = express.Router();
 
@@ -17,8 +18,9 @@ router.get('/:id?', async (req, res) => {
 router.delete('/:id?', async (req, res) => {
     const id = Number(req.params.id);
     try {
-        const result = await db.Blogs.delete_blog(id)
-        res.json(result)
+        db.BlogTags.destroy(id)
+        .then(() => {db.Blogs.delete_blog(id)})
+        res.status(200).send(`Blog ${id} deleted`)
         console.log(`Blog ${id} deleted`)
     } catch (error) {
         res.status(500).send(error.sqlMessage)
@@ -26,11 +28,12 @@ router.delete('/:id?', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const authorid = 1
-    const title = req.body.title;
-    const content = req.body.content
+    const authorid: Author["id"] = 1
+    const title: Blog['title'] = req.body.title;
+    const content: Blog['content'] = req.body.content
     try {
         const result = await db.Blogs.add_blog(authorid, title, content)
+        console.log(`Blog # ${result.insertId} added!`)
         res.json(result)
     } catch (error) {
         res.status(500).send(error.sqlMessage)
@@ -39,12 +42,12 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     const id = Number(req.params.id);
-    const blogTitle = req.body.title;
-    const blogContent = req.body.content;
+    const blogTitle: Blog["title"] = req.body.title;
+    const blogContent: Blog["content"] = req.body.content;
     try {
         const result = await db.Blogs.edit_blog(blogTitle, blogContent, id)
-        res.json(result)
         console.log(`Blog ${id} edited`)
+        res.json(result)
     } catch (error) {
         res.status(500).send(error.sqlMessage)
     }

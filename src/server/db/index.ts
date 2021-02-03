@@ -1,8 +1,8 @@
 import * as mysql from 'mysql';
 import config from '../config';
-import Blogs from './blogstable';
-import BlogTags from './blogtags';
-import Tags from './tags';
+import Blogs from './queries/blogstable';
+import BlogTags from './queries/blogtags';
+import Tags from './queries/tags';
 
 export const pool = mysql.createPool(config.mysql); 
 
