@@ -16,13 +16,14 @@ const Blogs: React.FC = () => {
 
     useEffect(() => { getBlogs(); }, [])
 
+
     return (
         <div className="row">
             {blogs?.reverse().map(blog => {
                 return (
                     <div key={blog?.id} className="col-md-4">
                         <div  className="card m-3" >
-                            <div className="card-header">{blog?.title}
+                            <div className="card-header text-center">{blog?.title}
                                 <p className='card-text'>By: User {blog?.authorid}</p>
                             </div>
                             <div className="card-body d-flex justify-content-center">

@@ -23,19 +23,20 @@
 	appearance: none;
 	border: 0;
 	background: transparent;
-	color: #e55743;
+	color: #485461;
 	text-transform: uppercase;
 	letter-spacing: .25em;
 	outline: none;
 	cursor: pointer;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 15px;
     border-radius: 0;
 	box-shadow: inset 0 0 0 var(--border-size) currentcolor;
 	transition: background .8s ease;
 	
 	&:hover {
 		background: rgba(100, 0, 0, .03);
+		color: #a5575b;
 	}
 	
 	&__horizontal,
@@ -93,7 +94,7 @@
 
 body{
     background-color: #485461;
-background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+	background-image: linear-gradient(315deg, #8f9ba8 0%, #28313b 74%);
 }
 
 #jumbo{

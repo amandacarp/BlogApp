@@ -40,7 +40,7 @@ const PostBlog: React.FC<postBlogProps> = ({ history }) => {
                 alert('Error: Could Not Post Blog');
                 console.log(err)
             })
-         history.push('/')
+         .then(() => {history.push('/')})
 
     }
 
@@ -66,9 +66,9 @@ const PostBlog: React.FC<postBlogProps> = ({ history }) => {
             </div>
             <div className="form-group mt-2">
                 <label id="label">Post your blog here</label>
-                <textarea rows={30} className="form-control" onChange={event => setContent(event.target.value)}></textarea>
+                <textarea rows={20} className="form-control" onChange={event => setContent(event.target.value)}></textarea>
             </div>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-around">
             <button id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => postBlog()}>Post your Blog</button>
             <button id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => history.goBack()}> Go Back</button>
         </div>

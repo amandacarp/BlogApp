@@ -121,12 +121,12 @@ const EditBlog: React.FC<singleBlogProps> = ({ history, match: { params: { id } 
             </div>
             <div className="form-group">
                 <label id="label">Edit your blog</label>
-                <textarea rows={30} className="form-control" placeholder={blog?.content} onChange={event => setContent(event.target.value)}></textarea>
+                <textarea rows={20} className="form-control" placeholder={blog?.content} onChange={event => setContent(event.target.value)}></textarea>
             </div>
             <div className="d-flex justify-content-between">
-            <button id="button" className="btn shadow" onClick={() => history.goBack()}> Go Back</button>
-            <button id="button" className="btn shadow" onClick={() => deleteBlog()}> Delete Blog</button>
             <button id="button" className="btn shadow" onClick={() => editBlog()}> Save Edit</button>
+            <button id="button" className="btn shadow" onClick={() => deleteBlog()}> Delete Blog</button>
+            <button id="button" className="btn shadow" onClick={() => history.goBack()}> Go Back</button>
             </div>
         </div>
         </>
