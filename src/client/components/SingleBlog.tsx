@@ -41,8 +41,10 @@ const SingleBlog: React.FC<singleBlogProps> = ({ history, match: { params: { id 
                         <div className="card-footer text-muted d-flex justify-content-between">
                             <p>{blogTag?.map(bt => `#${bt.tagname}`)}</p>
                             <p className="card-text">Last updated {moment(blog?._created).startOf('minute').fromNow()} at {moment(blog?._created).format('h:mm a')}</p>
-                            <button className="btn shadow" onClick={() => history.goBack()}> Go Back</button>
-                            <Link className="btn shadow" to={`/${blog?.id}/edit`}> Edit Blog </Link>
+                            <div className="d-flex justify-content-center">
+                            <button id="buttonSingle" className="btn shadow mx-4" onClick={() => history.goBack()}> Go Back</button>
+                            <Link id="buttonSingle" className="btn shadow mx-4" to={`/${blog?.id}/edit`}> Edit Blog </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

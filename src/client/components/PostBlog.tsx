@@ -11,7 +11,6 @@ const PostBlog: React.FC<postBlogProps> = ({ history }) => {
     const [content, setContent] = useState('');
     const [tags, setTags] = useState(null);
     const [selectedTags, setSelectedTags] = useState(null);
-    const [blogid, setBlogID] = useState(null);
 
     const postBlog = async () => {
         fetch('/api/blogs', {
@@ -57,20 +56,22 @@ const PostBlog: React.FC<postBlogProps> = ({ history }) => {
 
         <div className="container">
             <div className="form-group">
-                <label>Enter your Title</label>
+                <label id="label">Enter your Title</label>
                 <input type="text" className="form-control" onChange={event => setTitle(event.target.value)} />
             </div>
             <div>
-                <Select isMulti options={tags?.map(tag => {
+                <Select id="labelSelect" isMulti options={tags?.map(tag => {
                     return { value: tag.id, label: tag.name }
                 })} onChange={(selectedOptions) => setSelectedTags(selectedOptions)}></Select>
             </div>
-            <div className="form-group">
-                <label>Post your blog here</label>
+            <div className="form-group mt-2">
+                <label id="label">Post your blog here</label>
                 <textarea rows={30} className="form-control" onChange={event => setContent(event.target.value)}></textarea>
             </div>
-            <button type="button" className="btn shadow mr-4" onClick={() => postBlog()}>Post your Blog</button>
-            <button type="button" className="btn shadow" onClick={() => history.goBack()}> Go Back</button>
+            <div className="d-flex justify-content-center">
+            <button id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => postBlog()}>Post your Blog</button>
+            <button id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => history.goBack()}> Go Back</button>
+        </div>
         </div>
 
     )
