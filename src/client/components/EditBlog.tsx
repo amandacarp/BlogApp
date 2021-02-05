@@ -1,15 +1,16 @@
 import moment from 'moment';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
 import Swal from 'sweetalert2'
-import { Blog } from '../../common/types';
+import { IBlog } from '../../common/types';
+import { useParams, useHistory } from 'react-router-dom'
 
-export interface singleBlogProps extends RouteComponentProps<{ id: string }> { };
 
+const EditBlog = (props: EditBlogProps) => {
+    const [blog, setSingleBlog] = useState<IBlog>(null);
 
-const EditBlog: React.FC<singleBlogProps> = ({ history, match: { params: { id } } }) => {
-    const [blog, setSingleBlog] = useState<Blog>(null);
+    const { id } = useParams<{ id: string}>()
+    const history  = useHistory<{history: string}>()
 
     const getSingleBlog = async () => {
         const r = await fetch (`/api/blogs/${id}`);
@@ -45,7 +46,7 @@ const EditBlog: React.FC<singleBlogProps> = ({ history, match: { params: { id } 
                     .then(() => {
                         Swal.fire({
                             title: 'Edit Saved!',
-                            text: `Your Chirp# ${blog?.id} has been edited.`,
+                            text: `Your Blog# ${blog?.id} has been edited.`,
                             icon: 'success',
                         })
                     }
@@ -117,11 +118,11 @@ const EditBlog: React.FC<singleBlogProps> = ({ history, match: { params: { id } 
         <div className="container">
             <div className="form-group">
                 <label id="label">Edit your Title</label>
-                <input type="text" className="form-control" placeholder={blog?.title} onChange={event => setTitle(event.target.value)} />
+                <input type="text" className="form-control" defaultValue={blog?.title} onChange={event => setTitle(event.target.value)} />
             </div>
             <div className="form-group">
                 <label id="label">Edit your blog</label>
-                <textarea rows={20} className="form-control" placeholder={blog?.content} onChange={event => setContent(event.target.value)}></textarea>
+                <textarea rows={20} className="form-control" defaultValue={blog?.content} onChange={event => setContent(event.target.value)}></textarea>
             </div>
             <div className="d-flex justify-content-between">
             <button id="button" className="btn shadow" onClick={() => editBlog()}> Save Edit</button>
@@ -132,5 +133,7 @@ const EditBlog: React.FC<singleBlogProps> = ({ history, match: { params: { id } 
         </>
     )
 }
+
+interface EditBlogProps {}
 
 export default EditBlog;

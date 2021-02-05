@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 
-export interface postBlogProps extends RouteComponentProps { };
+const PostBlog= (props: PostBlogProps) => {
 
-const PostBlog: React.FC<postBlogProps> = ({ history }) => {
+    const history = useHistory<{ history: string}>()
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -76,5 +76,7 @@ const PostBlog: React.FC<postBlogProps> = ({ history }) => {
 
     )
 }
+
+interface PostBlogProps {}
 
 export default PostBlog;

@@ -19,7 +19,6 @@ export const Query = <T = any>(query: string, values?: any) => {
                 } else {
                     resolve(results);
                 }
-          
         })
     })
 }

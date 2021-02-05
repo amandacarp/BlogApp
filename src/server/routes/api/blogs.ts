@@ -1,12 +1,12 @@
 import * as express from 'express';
 import db from '../../db'
-import {Blog, Author} from '../../../common/types'
+import {IBlog, Author} from '../../../common/types'
 
 const router = express.Router();
 
 
 router.get('/:id?', async (req, res) => {
-    const id = Number(req.params.id);
+    const id: IBlog['id'] = Number(req.params.id);
     try {
         const result = id ? await db.Blogs.by_id(id) : await db.Blogs.all();
         res.json(result)
@@ -16,7 +16,7 @@ router.get('/:id?', async (req, res) => {
 });
 
 router.delete('/:id?', async (req, res) => {
-    const id = Number(req.params.id);
+    const id: IBlog["id"] = Number(req.params.id);
     try {
         db.BlogTags.destroy(id)
         .then(() => {db.Blogs.delete_blog(id)})
@@ -29,8 +29,8 @@ router.delete('/:id?', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const authorid: Author["id"] = 1
-    const title: Blog['title'] = req.body.title;
-    const content: Blog['content'] = req.body.content
+    const title: IBlog['title'] = req.body.title;
+    const content: IBlog['content'] = req.body.content
     try {
         const result = await db.Blogs.add_blog(authorid, title, content)
         console.log(`Blog # ${result.insertId} added!`)
@@ -41,9 +41,9 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-    const id = Number(req.params.id);
-    const blogTitle: Blog["title"] = req.body.title;
-    const blogContent: Blog["content"] = req.body.content;
+    const id: IBlog['id'] = Number(req.params.id);
+    const blogTitle: IBlog["title"] = req.body.title;
+    const blogContent: IBlog["content"] = req.body.content;
     try {
         const result = await db.Blogs.edit_blog(blogTitle, blogContent, id)
         console.log(`Blog ${id} edited`)

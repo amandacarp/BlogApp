@@ -2,14 +2,14 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import moment from 'moment';
-import { Blog } from '../../common/types';
+import { IBlog } from '../../common/types';
 
-const Blogs: React.FC = () => {
+const Blogs = (props: BlogsProps) => {
 
-    const [blogs, setBlogs] = useState<Blog[]>(null);
+    const [blogs, setBlogs] = useState<IBlog[]>(null);
 
     const getBlogs = async () => {
-        const r = await fetch('http://localhost:3000/api/blogs');
+        const r = await fetch('/api/blogs');
         const blogs = await r.json();
         setBlogs(blogs);
     }
@@ -38,9 +38,8 @@ const Blogs: React.FC = () => {
             })}
         </div>
     )
-
-
-
 }
+
+interface BlogsProps {}
 
 export default Blogs;

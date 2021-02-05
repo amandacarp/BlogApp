@@ -1,15 +1,16 @@
 import moment from 'moment';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Blog, BlogTags } from '../../common/types';
+import { Link } from 'react-router-dom';
+import { IBlog, BlogTags } from '../../common/types';
+import { useParams, useHistory } from 'react-router-dom'
 
-export interface singleBlogProps extends RouteComponentProps<{ id: string }> { };
-
-
-const SingleBlog: React.FC<singleBlogProps> = ({ history, match: { params: { id } } }) => {
-    const [blog, setSingleBlog] = useState<Blog>(null);
+const SingleBlog= (props: singleBlogProps) => {
+    const [blog, setSingleBlog] = useState<IBlog>(null);
     const [blogTag, setSingleBlogTag] = useState<BlogTags[]>(null);
+
+    const { id } = useParams<{ id: string}>()
+    const history  = useHistory<{history: string}>()
 
     const getSingleBlog = async () => {
         const r = await fetch (`/api/blogs/${id}`);
@@ -57,5 +58,7 @@ const SingleBlog: React.FC<singleBlogProps> = ({ history, match: { params: { id 
         </>
     )
 }
+
+interface singleBlogProps {}
 
 export default SingleBlog;

@@ -9,7 +9,7 @@ export interface MySQLResponse {
 	changedRows: number;
 }
 
-export interface Blog {
+export interface IBlog {
     id?: number;
 	title?: string
     content?: string;

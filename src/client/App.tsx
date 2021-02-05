@@ -6,8 +6,9 @@ import SingleBlog from './components/SingleBlog';
 import Navbar from './components/Navbar';
 import EditBlog from './components/EditBlog';
 import PostBlog from './components/PostBlog';
+import NotFound from './components/NotFound';
 
-const App: React.FC = () => {
+const App = (props: AppProps) => {
     return (
         <Router>
             <>
@@ -17,10 +18,13 @@ const App: React.FC = () => {
                 <Route exact path='/:id' component={SingleBlog} />
                 <Route exact path='/:id/edit' component={EditBlog} />
                 <Route exact path='/blogs/post' component={PostBlog} />
+                <Route path="*" component={NotFound} />
             </Switch>
             </>
         </Router>
     )
 }
+
+interface AppProps {}
 
 export default App;
