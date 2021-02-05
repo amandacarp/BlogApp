@@ -1,8 +1,9 @@
 import * as dotenv from 'dotenv';
 
-dotenv.config();
+//look for .env file and parse- turn into environment variables that you can access
+dotenv.config(); 
 
-// config object
+// config object uses .env variables
 export default {
     mysql: {
         host: process.env.DB_HOST,
