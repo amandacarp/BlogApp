@@ -1,4 +1,5 @@
 import * as express from 'express';
+import * as passport from 'passport';
 import db from '../../db'
 import {IBlog, Author} from '../../../common/types'
 
@@ -15,7 +16,7 @@ router.get('/:id?', async (req, res) => {
     }
 });
 
-router.delete('/:id?', async (req, res) => {
+router.delete('/:id?', passport.authenticate('jwt'), async (req: any, res) => {
     const id: IBlog["id"] = Number(req.params.id);
     try {
         db.BlogTags.destroy(id)
@@ -27,8 +28,8 @@ router.delete('/:id?', async (req, res) => {
     }
 })
 
-router.post('/', async (req, res) => {
-    const authorid: Author["id"] = 1
+router.post('/', passport.authenticate('jwt'), async (req: any, res) => {
+    const authorid: Author['id'] = req.user.authorid
     const title: IBlog['title'] = req.body.title;
     const content: IBlog['content'] = req.body.content
     try {
@@ -40,7 +41,7 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', passport.authenticate('jwt'), async (req: any, res) => {
     const id: IBlog['id'] = Number(req.params.id);
     const blogTitle: IBlog["title"] = req.body.title;
     const blogContent: IBlog["content"] = req.body.content;

@@ -10,3 +10,8 @@ export async function generateHash(password: string) {
     }
 
 }
+
+export function comparePasswords(attemptedPassword: string, storedPassword: string) {
+    return bcrypt.compareSync(attemptedPassword, storedPassword)
+}
+            //bcrypt can compare the login attempt pw against encypted version
