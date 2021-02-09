@@ -36,10 +36,12 @@ export interface Author {
 }
 
 export interface BlogTags {
+    map: any;
 	tagname?: string;
 	blogid?: number;
 	tagid?: number;
 }
+
 
 export interface IPayload{
 	authorid: number,

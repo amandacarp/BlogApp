@@ -24,8 +24,8 @@ const PostBlog= (props: PostBlogProps) => {
             .then((res) => res.json())
             .then((sqlRes) => {
                 const blogid = sqlRes.insertId
-                const tagIDs = selectedTags.map(tag => tag.value)
-                tagIDs.forEach(tagid => {
+                const tagIDs = selectedTags.map((tag: { value: string; }) => tag.value)
+                tagIDs.forEach((tagid: number) => {
                     fetch('/api/blogtags', {
                         method: 'POST',
                         headers: { "Content-Type": "application/json" },
@@ -60,7 +60,7 @@ const PostBlog= (props: PostBlogProps) => {
                 <input type="text" className="form-control" onChange={event => setTitle(event.target.value)} />
             </div>
             <div>
-                <Select id="labelSelect" isMulti options={tags?.map(tag => {
+                <Select id="labelSelect" isMulti options={tags?.map((tag: { id: number; name: string; }) => {
                     return { value: tag.id, label: tag.name }
                 })} onChange={(selectedOptions) => setSelectedTags(selectedOptions)}></Select>
             </div>

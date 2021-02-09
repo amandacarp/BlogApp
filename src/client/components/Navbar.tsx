@@ -21,6 +21,19 @@ const Navbar = () => {
 	        <div className="button__horizontal"></div>
                     <div className="button__vertical"></div>
                 </Link> </button>
+
+                <button> <Link to='/blogs/register' className="button">
+                    Register New User
+	        <div className="button__horizontal"></div>
+                    <div className="button__vertical"></div>
+                </Link> </button>
+
+                <button> <Link to='/blogs/login' className="button">
+                    Login
+	        <div className="button__horizontal"></div>
+                    <div className="button__vertical"></div>
+                </Link> </button>
+                
             </p>
          
 
