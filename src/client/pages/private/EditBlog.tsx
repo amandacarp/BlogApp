@@ -10,16 +10,16 @@ import apiService from '../../utils/api-service';
 const EditBlog = (props: EditBlogProps) => {
     const [blog, setSingleBlog] = useState<IBlog>(null);
 
-    const { id } = useParams<{ id: string}>()
-    const history  = useHistory<{history: string}>()
+    const { id } = useParams<{ id: string }>()
+    const history = useHistory<{ history: string }>()
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
 
-    useEffect(() => { 
+    useEffect(() => {
         apiService(`/api/blogs/${id}`)
             .then(blog => setSingleBlog(blog[0]));
-     }, [id])
+    }, [id])
 
 
     const editBlog = () => {
@@ -32,7 +32,7 @@ const EditBlog = (props: EditBlogProps) => {
             confirmButtonText: 'Yes, save it!'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                return await apiService(`/api/blogs/${id}`, 'PUT', {title, content})
+                return await apiService(`/api/blogs/${id}`, 'PUT', { title, content })
 
                     .then(() => {
                         Swal.fire({
@@ -102,28 +102,28 @@ const EditBlog = (props: EditBlogProps) => {
             })
     }
 
-    return(
+    return (
         <>
-        <div className="container">
-            <div className="form-group">
-                <label id="label">Edit your Title</label>
-                <input type="text" className="form-control" defaultValue={blog?.title} onChange={event => setTitle(event.target.value)} />
+            <div className="container">
+                <div className="form-group">
+                    <label id="label">Edit your Title</label>
+                    <input type="text" className="form-control" defaultValue={blog?.title} onChange={event => setTitle(event.target.value)} />
+                </div>
+                <div className="form-group">
+                    <label id="label">Edit your blog</label>
+                    <textarea rows={20} className="form-control" defaultValue={blog?.content} onChange={event => setContent(event.target.value)}></textarea>
+                </div>
+                <small className="d-block charcount">{blog?.content.length || 0} / 5,000</small>
+                <div className="d-flex justify-content-between">
+                    <button id="button" className="btn shadow" onClick={() => editBlog()}> Save Edit</button>
+                    <button id="button" className="btn shadow" onClick={() => deleteBlog()}> Delete Blog</button>
+                    <button id="button" className="btn shadow" onClick={() => history.goBack()}> Go Back</button>
+                </div>
             </div>
-            <div className="form-group">
-                <label id="label">Edit your blog</label>
-                <textarea rows={20} className="form-control" defaultValue={blog?.content} onChange={event => setContent(event.target.value)}></textarea>
-            </div>
-            <small className="d-block charcount">{blog?.content.length || 0 } / 5,000</small>
-            <div className="d-flex justify-content-between">
-            <button id="button" className="btn shadow" onClick={() => editBlog()}> Save Edit</button>
-            <button id="button" className="btn shadow" onClick={() => deleteBlog()}> Delete Blog</button>
-            <button id="button" className="btn shadow" onClick={() => history.goBack()}> Go Back</button>
-            </div>
-        </div>
         </>
     )
 }
 
-interface EditBlogProps {}
+interface EditBlogProps { }
 
 export default EditBlog;

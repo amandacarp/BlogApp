@@ -5,29 +5,29 @@ import { useParams } from 'react-router-dom'
 import BlogCard from '../../components/BlogCard';
 import apiService from '../../utils/api-service';
 
-const SingleBlog= (props: singleBlogProps) => {
+const SingleBlog = (props: singleBlogProps) => {
     const [blog, setSingleBlog] = useState<IBlog>(null);
     const [blogTag, setSingleBlogTag] = useState<BlogTags[]>(null);
 
-    const { id } = useParams<{ id: string}>()
+    const { id } = useParams<{ id: string }>()
 
 
-    useEffect(() => { 
+    useEffect(() => {
         apiService(`/api/blogs/${id}`)
             .then(blog => setSingleBlog(blog[0]));
-     }, [id])
+    }, [id])
 
-     useEffect(() => { 
+    useEffect(() => {
         apiService(`/api/blogtags/${id}`)
             .then(blogTag => setSingleBlogTag(blogTag));
-     }, [id])
+    }, [id])
 
 
-    return(
-        <BlogCard key={blog?.id} blog={blog} blogTag={blogTag}/>
+    return (
+        <BlogCard key={blog?.id} blog={blog} blogTag={blogTag} />
     )
 }
 
-interface singleBlogProps {}
+interface singleBlogProps { }
 
 export default SingleBlog;

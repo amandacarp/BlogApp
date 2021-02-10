@@ -39,11 +39,11 @@ const Navbar = () => {
 	        <div className="button__horizontal"></div>
                     <div className="button__vertical"></div>
                 </Link> </button>
-                
-            </p>
-         
 
-           
+            </p>
+
+
+
 
         </div>
 

@@ -8,21 +8,21 @@ const Blogs = (props: BlogsProps) => {
 
     const [blogs, setBlogs] = useState<IBlog[]>(null);
 
-    useEffect(() => { 
+    useEffect(() => {
         apiService('/api/blogs')
             .then(blogs => setBlogs(blogs));
-     }, [])
+    }, [])
 
 
     return (
         <div className="row">
             {blogs?.reverse().map(blog => (
-                <HomeCard key={blog?.id} blog={blog}/>
+                <HomeCard key={blog?.id} blog={blog} />
             ))}
         </div>
     )
 }
 
-interface BlogsProps {}
+interface BlogsProps { }
 
 export default Blogs;
