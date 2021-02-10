@@ -26,7 +26,8 @@ const Login = (props: LoginProps) => {
                 <div className="col-md-4">
                     <div className="card shadow">
                         <div className="card-body">
-                            <h4 className="card-title text-center profile">Welcome! Please login below to get started!</h4>
+                            <h4 className="card-title text-center profile">Welcome! </h4>
+                            <h4 className="card-title text-center profile">Please login below to get started!</h4>
                         </div>
                     </div>
                 </div>

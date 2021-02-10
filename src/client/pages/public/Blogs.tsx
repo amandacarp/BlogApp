@@ -16,7 +16,7 @@ const Blogs = (props: BlogsProps) => {
 
     return (
         <div className="row">
-            {blogs?.reverse().map(blog => (
+            {blogs?.map(blog => (
                 <HomeCard key={blog?.id} blog={blog} />
             ))}
         </div>

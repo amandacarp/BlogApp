@@ -26,7 +26,7 @@ const Profile = (props: ProfileProps) => {
                     <div className="col-md-4">
                         <div className="card shadow">
                             <div className="card-body">
-                                <h4 className="card-title text-center profile">Welcome Back, {info?.first_name}!</h4>
+                                <h4 className="card-title text-center profile">Welcome, {info?.first_name}!</h4>
                             </div>
                         </div>
                     </div>
