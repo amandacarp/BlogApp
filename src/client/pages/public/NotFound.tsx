@@ -3,6 +3,7 @@ import * as React from 'react';
 const NotFound = (props: NotFoundProps) => {
 	return (
 		<>
+
 			<div id="background"></div>
 			<div className="top">
 				<h1 className="ghosth1">404</h1>

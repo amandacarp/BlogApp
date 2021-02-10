@@ -16,7 +16,7 @@ router.get('/:blogid', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const blogTags = req.body;
-    const {blogid, tagid} = blogTags
+    const {blogid, tagid} = blogTags //destructured from the blogtag db table 
     try {
         console.log(blogid, tagid);
         const blogTagPost = await db.BlogTags.create(blogid, tagid);
@@ -25,5 +25,28 @@ router.post('/', async (req, res) => {
         res.status(500).send(error)
     }
 })
+
+// router.put('/:id', passport.authenticate('jwt'), async (req, res) => {
+//     const id = Number(req.params.id)
+//     const tagDTO = req.body
+//     try {
+//         await db.blogtags.update(tagDTO.newId, tagDTO.oldId, id)
+//         res.json({ msg: 'blogtag(s) changed' })
+//     } catch (error) {
+//         console.log(error)
+//         res.status(500).json({ msg: 'my code sucks :(', error: error.message })
+//     }
+// })
+
+// router.delete('/:id', passport.authenticate('jwt'), async (req, res) => {
+//     try {
+//         const id = Number(req.params.id)
+//         await db.blogtags.destroy(id);
+//         res.json({ msg: 'You have been banished to the shadow realm!' });
+//     } catch (error) {
+//         console.log(error)
+//         res.status(500).json({ msg: 'my code sucks :(', error: error.message })
+//     }
+// })
 
 export default router;

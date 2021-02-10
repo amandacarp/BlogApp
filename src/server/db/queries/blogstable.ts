@@ -7,6 +7,11 @@ const delete_blog = async (id: IBlog['id'], authorid: IBlog['authorid']) => Quer
 const add_blog = async (authorid: Author['id'], title: IBlog['title'], content: IBlog['content']) => Query<MySQLResponse>('INSERT into Blogs SET authorid = ?, title = ?, content = ?', [ authorid, title, content ]);
 const edit_blog = async (title: IBlog['title'], content: IBlog['content'], id: IBlog['id'], authorid: IBlog['authorid']) => Query<MySQLResponse>('UPDATE Blogs SET title = ?, content = ? WHERE id = ? AND authorid = ?', [title, content, id, authorid])
 const find = (column: string, value: string | number) => Query<IBlog[]>('SELECT * FROM Blogs WHERE ?? = ?', [column, value])
+const search = (term: string) =>
+	Query(
+		'SELECT Blogs.*, Authors.username FROM Blogs JOIN Authors ON Authors.id = Blogs.authorid WHERE Blogs.title LIKE ?',
+		[`%${term}%`]
+	);
 
 
 export default {
@@ -15,5 +20,6 @@ export default {
     delete_blog,
     add_blog,
     edit_blog,
-    find
+    find,
+    search
 }

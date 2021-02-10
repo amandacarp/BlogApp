@@ -36,7 +36,7 @@ const PostBlog = (props: PostBlogProps) => {
     }, [])
 
     return (
-
+        <>
         <div className="container">
             <div className="form-group">
                 <label id="label">Enter your Title</label>
@@ -58,7 +58,7 @@ const PostBlog = (props: PostBlogProps) => {
                 <button id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => history.goBack()}> Go Back</button>
             </div>
         </div>
-
+</>
     )
 }
 

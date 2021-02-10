@@ -21,6 +21,7 @@ const Profile = (props: ProfileProps) => {
 
     return (
         <>
+
             <div className="contatiner">
                 <div className="row justify-content-center mt-3">
                     <div className="col-md-4">

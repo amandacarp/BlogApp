@@ -36,7 +36,7 @@ const BlogCard = ({ blog, blogTag }: BlogCardProps) => {
 
 interface BlogCardProps {
     blog: IBlog;
-    blogTag: BlogTags
+    blogTag?: BlogTags
 }
 
 export default BlogCard;

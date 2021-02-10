@@ -18,9 +18,12 @@ const Login = (props: LoginProps) => {
         const token = await apiService('/auth/login', 'POST', values)
         setStorage(token)
         history.push('/blogs/profile')
+        window.location.reload(true);
+
     };
 
     return (
+        <>
         <div className="container">
             <div className="row justify-content-center mt-3">
                 <div className="col-md-4">
@@ -49,6 +52,7 @@ const Login = (props: LoginProps) => {
                 </div>
             </div>
         </div>
+        </>
     )
 
 }

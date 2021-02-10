@@ -24,7 +24,10 @@ const SingleBlog = (props: singleBlogProps) => {
 
 
     return (
+        <>
+
         <BlogCard key={blog?.id} blog={blog} blogTag={blogTag} />
+        </>
     )
 }
 
