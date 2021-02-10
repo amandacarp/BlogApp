@@ -2,8 +2,9 @@ import moment from 'moment';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2'
-import { IBlog } from '../../common/types';
+import { IBlog } from '../../../common/types';
 import { useParams, useHistory } from 'react-router-dom'
+import apiService from '../../utils/api-service';
 
 
 const EditBlog = (props: EditBlogProps) => {
@@ -12,18 +13,14 @@ const EditBlog = (props: EditBlogProps) => {
     const { id } = useParams<{ id: string}>()
     const history  = useHistory<{history: string}>()
 
-    const getSingleBlog = async () => {
-        const r = await fetch (`/api/blogs/${id}`);
-        const singleBlog = await r.json();
-        setSingleBlog(singleBlog[0]);
-    };
-
-    useEffect(() => {
-        getSingleBlog();
-    }, [id])
-
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
+
+    useEffect(() => { 
+        apiService(`/api/blogs/${id}`)
+            .then(blog => setSingleBlog(blog[0]));
+     }, [id])
+
 
     const editBlog = () => {
         Swal.fire({
@@ -35,18 +32,12 @@ const EditBlog = (props: EditBlogProps) => {
             confirmButtonText: 'Yes, save it!'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                return await fetch(`/api/blogs/${id}`, {
-                    method: 'PUT',
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        title,
-                        content
-                    })
-                })
+                return await apiService(`/api/blogs/${id}`, 'PUT', {title, content})
+
                     .then(() => {
                         Swal.fire({
                             title: 'Edit Saved!',
-                            text: `Your Blog# ${blog?.id} has been edited.`,
+                            text: `Your Blog #${blog?.id} has been edited.`,
                             icon: 'success',
                         })
                     }
@@ -59,7 +50,7 @@ const EditBlog = (props: EditBlogProps) => {
                     'error'
                 )
             }
-        }).then(() => { history.push('/') })
+        }).then(() => { history.push(`/blogs/profile`) })
             .catch(err => {
                 Swal.fire({
                     title: `Error: Blog not edited`,
@@ -82,13 +73,11 @@ const EditBlog = (props: EditBlogProps) => {
             confirmButtonText: 'Yes, delete it!'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                return await fetch(`/api/blogs/${id}`, {
-                    method: 'delete'
-                })
+                return await apiService(`/api/blogs/${id}`, 'DELETE')
                     .then(() => {
                         Swal.fire({
                             title: 'Deleted!',
-                            text: `Your Blog# ${blog?.id} has been deleted.`,
+                            text: `Your Blog #${blog?.id} has been deleted.`,
                             icon: 'success',
                         })
                     }
@@ -101,7 +90,7 @@ const EditBlog = (props: EditBlogProps) => {
                     'error'
                 )
             }
-        }).then(() => { history.push('/') })
+        }).then(() => { history.push('/blogs/profile') })
             .catch(err => {
                 Swal.fire({
                     title: `Error: Blog not deleted`,
@@ -124,6 +113,7 @@ const EditBlog = (props: EditBlogProps) => {
                 <label id="label">Edit your blog</label>
                 <textarea rows={20} className="form-control" defaultValue={blog?.content} onChange={event => setContent(event.target.value)}></textarea>
             </div>
+            <small className="d-block charcount">{blog?.content.length || 0 } / 5,000</small>
             <div className="d-flex justify-content-between">
             <button id="button" className="btn shadow" onClick={() => editBlog()}> Save Edit</button>
             <button id="button" className="btn shadow" onClick={() => deleteBlog()}> Delete Blog</button>

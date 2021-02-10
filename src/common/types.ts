@@ -1,5 +1,4 @@
 //ORM - object relational map: library that takes what schemea looks like and returns js functions that will do insert, gets, finds
-import { Request } from 'express';
 
 export interface MySQLResponse {
 	fieldCount: number;
@@ -13,10 +12,10 @@ export interface MySQLResponse {
 }
 
 export interface IBlog {
-    id?: number;
+	id?: number;
 	title?: string;
-    content?: string;
-    authorid?: Author["id"];
+	content?: string;
+	authorid?: Author['id'];
 	_created?: Date;
 	username?: Author['username'];
 	first_name?: Author['first_name'];
@@ -36,22 +35,32 @@ export interface Author {
 }
 
 export interface BlogTags {
-    map: any;
+	map: any;
 	tagname?: string;
 	blogid?: number;
 	tagid?: number;
 }
 
 
-export interface IPayload{
+export interface IPayload {
 	authorid: number,
 	email: string,
 	username: string
 }
 
-
-export interface ReqUser extends Request {
-    author?: Author & IPayload;
+export interface IProfileInfo {
+	id: number,
+	first_name: string,
+	last_name: string,
+	username: string,
+	email: string,
+	_created: Date
 }
 
-
+export interface IProfileBlogs {
+	id: number,
+	title: string,
+	content: string,
+	authorid: number,
+	_created: Date
+}

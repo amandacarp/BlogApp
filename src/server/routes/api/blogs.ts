@@ -17,10 +17,11 @@ router.get('/:id?', async (req, res) => {
 });
 
 router.delete('/:id?', passport.authenticate('jwt'), async (req: any, res) => {
-    const id: IBlog["id"] = Number(req.params.id);
+    const id: IBlog['id'] = Number(req.params.id);
+    const authorid: Author['id'] = req.user.authorid
     try {
-        db.BlogTags.destroy(id)
-        .then(() => {db.Blogs.delete_blog(id)})
+        await db.BlogTags.destroy(id)
+        .then(() => {db.Blogs.delete_blog(id, authorid)})
         res.status(200).send(`Blog ${id} deleted`)
         console.log(`Blog ${id} deleted`)
     } catch (error) {
@@ -43,10 +44,11 @@ router.post('/', passport.authenticate('jwt'), async (req: any, res) => {
 
 router.put('/:id', passport.authenticate('jwt'), async (req: any, res) => {
     const id: IBlog['id'] = Number(req.params.id);
-    const blogTitle: IBlog["title"] = req.body.title;
-    const blogContent: IBlog["content"] = req.body.content;
+    const blogTitle: IBlog['title'] = req.body.title;
+    const blogContent: IBlog['content'] = req.body.content;
+    const authorid: Author['id'] = req.user.authorid;
     try {
-        const result = await db.Blogs.edit_blog(blogTitle, blogContent, id)
+        const result = await db.Blogs.edit_blog(blogTitle, blogContent, id, authorid)
         console.log(`Blog ${id} edited`)
         res.json(result)
     } catch (error) {

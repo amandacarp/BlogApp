@@ -1,19 +1,17 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { IBlog } from '../../common/types';
-import HomeCard from '../pages/HomeCard';
+import { IBlog } from '../../../common/types';
+import HomeCard from '../../components/HomeCard';
+import apiService from '../../utils/api-service';
 
 const Blogs = (props: BlogsProps) => {
 
     const [blogs, setBlogs] = useState<IBlog[]>(null);
 
-    const getBlogs = async () => {
-        const r = await fetch('/api/blogs');
-        const blogs = await r.json();
-        setBlogs(blogs);
-    }
-
-    useEffect(() => { getBlogs(); }, [])
+    useEffect(() => { 
+        apiService('/api/blogs')
+            .then(blogs => setBlogs(blogs));
+     }, [])
 
 
     return (

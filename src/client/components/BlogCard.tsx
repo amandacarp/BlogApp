@@ -25,7 +25,6 @@ const BlogCard = ({ blog, blogTag }: BlogCardProps) => {
                         <div className="card-footer text-muted d-flex justify-content-between">
                             <p>Tags: {blogTag?.map((bt: { tagname: string; }) => `#${bt.tagname} `)}</p>
                             <p className="card-text">Last updated {moment(blog?._created).startOf('minute').fromNow()} at {moment(blog?._created).format('h:mm a')}</p>
-                            <Link id="buttonSingle" className="btn shadow mr-4" to={`/${blog?.id}/edit`}> Edit Blog </Link>
                             <button id="buttonSingle" className="btn shadow" onClick={() => history.goBack()}> Go Back</button>
                             </div>
                         </div>
