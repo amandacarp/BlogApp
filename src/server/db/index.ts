@@ -4,6 +4,7 @@ import Blogs from './queries/blogstable';
 import BlogTags from './queries/blogtags';
 import Tags from './queries/tags';
 import Authors from './queries/authors'
+import Comments from './queries/comments'
 
 //pool connection you don't have to manually write .connent and .end
 //create pool needs an object to connect to db
@@ -33,5 +34,6 @@ export default { // we import and export our queries on this page for convenienc
     Blogs,
     BlogTags,
     Tags,
-    Authors
+    Authors,
+    Comments
 }

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import apiService, { setStorage } from '../../utils/api-service';
 import { IFormState } from './Register';
 
@@ -16,9 +17,19 @@ const Login = (props: LoginProps) => {
     const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const token = await apiService('/auth/login', 'POST', values)
-        setStorage(token)
-        history.push('/blogs/profile')
-        window.location.reload(true);
+        if (token) {
+            setStorage(token)
+            history.push('/blogs/profile')
+        } else {
+            Swal.fire({
+                title: 'Invalid!',
+                text: `Incorrect Email or Password. Please try again!`,
+                icon: 'error',
+            })
+        }
+        console.log(token)
+        
+        // window.location.reload(true); look up history.listen
 
     };
 

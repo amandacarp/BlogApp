@@ -53,12 +53,23 @@ GRANT ALL PRIVILEGES ON blogs. * TO 'blogsapp'@'localhost';
 
 ALTER USER 'blogsapp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
-SELECT * from Tags;
 
-SELECT * FROM BlogTags;
+CREATE TABLE comments (
+    id INT NOT NULL AUTO_INCREMENT,
+    authorid INT NOT NULL,
+    content VARCHAR(255) NOT NULL,
+    blogid INT NOT NULL,
+    _created DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (authorid)
+        REFERENCES Authors (id),
+    FOREIGN KEY (blogid)
+        REFERENCES Blogs (id)
+);
 
-SELECT * FROM Blogs;
+SELECT * FROM BLOGS;
 
 SELECT * FROM Authors;
 
-DESCRIBE Blogs;
+SELECT * FROM comments;
+

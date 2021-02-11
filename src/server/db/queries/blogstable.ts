@@ -9,7 +9,7 @@ const edit_blog = async (title: IBlog['title'], content: IBlog['content'], id: I
 const find = (column: string, value: string | number) => Query<IBlog[]>('SELECT * FROM Blogs WHERE ?? = ?', [column, value])
 const search = (term: string) =>
 	Query(
-		'SELECT Blogs.*, Authors.username FROM Blogs JOIN Authors ON Authors.id = Blogs.authorid WHERE Blogs.title LIKE ?',
+		'SELECT Blogs.*, Authors.username, Authors.first_name, Authors.last_name FROM Blogs JOIN Authors ON Authors.id = Blogs.authorid WHERE Blogs.title LIKE ?',
 		[`%${term}%`]
 	);
 

@@ -41,6 +41,14 @@ export interface BlogTags {
 	tagid?: number;
 }
 
+export interface Comments {
+	id?: number,
+	blogid?: number,
+	authorid?: number,
+	content: string,
+	_created?: Date
+}
+
 
 export interface IPayload {
 	authorid?: number, // the is the unique id of the authors in our database. We need the id to get to the token's payload

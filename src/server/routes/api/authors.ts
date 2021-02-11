@@ -7,7 +7,7 @@ const router = Router()
 router.get('/profile', passport.authenticate('jwt'), async (req: any, res) => { //callback function to db that runs after router finds '/profile'
     try {
         const authorid = req.user.authorid
-        const [profile] = await db.Authors.one(authorid); //gets 
+        const [profile] = await db.Authors.one(authorid); 
         const blogs = await db.Blogs.find('authorid', authorid)
         delete profile.password;
         res.json({profile, blogs}) //converts json to js and displays

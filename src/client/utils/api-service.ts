@@ -23,7 +23,7 @@ const apiService = async<T= any> (uri: string, method: string = 'GET', body?: {}
         headers['Authorization'] = `Bearer ${token}` //if token is real, attach for our server to find
         //bearer tokens are always in the Authorization req header field
         //headers are harder to hack than bodies because they need to be more specific
-    }
+    } 
     //headers are mostly used to describe cyptographic operations such as signing and/or encyption
 
     if (method === 'POST' || method === 'PUT') {
@@ -60,7 +60,7 @@ export const setStorage = (token: string) => {
 
 export const logout = () => {
     localStorage.removeItem(TOKEN_KEY);
-    window.location.reload(true);
+    // window.location.reload(true); LOOK UP HISTORY.LISTEN
 }
 
 export default apiService;

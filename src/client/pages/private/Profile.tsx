@@ -40,8 +40,8 @@ const Profile = (props: ProfileProps) => {
                     <div className="col-md-6">
                         <ul className="list-group">
                             {blogs.map(blog => (
-                                <li key={blog.id} className="list-group-item d-flex align-items-center justify-content-between">
-                                    <span className="profile">{blog.title}</span>
+                                <li key={blog?.id} className="list-group-item d-flex align-items-center justify-content-between">
+                                    <span className="profile">{blog?.title}</span>
                                     <div>
                                         <Link id="buttonSingle" className="btn shadow mr-4" to={`/${blog?.id}`}> View Blog </Link>
                                         <Link id="buttonSingle" className="btn shadow mr-4" to={`/${blog?.id}/edit`}> Edit Blog </Link>

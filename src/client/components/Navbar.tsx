@@ -50,12 +50,6 @@ const Navbar = () => {
                             <div className="button__vertical"></div>
                         </Link> </button>
 
-                        <button> <Link to='/blogs/profile' className="button">
-                            Go To Your Profile
-	        <div className="button__horizontal"></div>
-                            <div className="button__vertical"></div>
-                        </Link> </button>
-
                         <button> <Link to='/blogs/search' className="button">
                             Search
 	        <div className="button__horizontal"></div>
