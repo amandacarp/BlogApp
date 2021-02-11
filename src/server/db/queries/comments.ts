@@ -4,7 +4,8 @@ import { Author, Comments, MySQLResponse } from '../../../common/types';
 const allforBlog = (blogid: number) => Query<Comments & Author[]>(`
 SELECT 
     comments.*,
-    authors.username
+    authors.first_name,
+    authors.last_name
 FROM 
     comments
         JOIN

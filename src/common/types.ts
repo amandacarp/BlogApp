@@ -45,8 +45,10 @@ export interface Comments {
 	id?: number,
 	blogid?: number,
 	authorid?: number,
-	content: string,
-	_created?: Date
+	content?: string,
+	_created?: Date,
+	first_name?: string,
+	last_name?: string
 }
 
 
