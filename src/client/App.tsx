@@ -20,7 +20,7 @@ const App = (props: AppProps) => {
             <Navbar />
                 <Switch>
                     <Route exact path='/' component={Blogs} />
-                    <Route exact path='/:id' component={SingleBlog} />
+                    <Route exact path='/blog/:id' component={SingleBlog} />
                     <Route exact path ='/blogs/search'> <Search /> </Route>
                     <PrivateRoute exact path='/:id/edit'> <EditBlog /> </PrivateRoute>
                     <Route exact path='/blogs/login' component={Login} />

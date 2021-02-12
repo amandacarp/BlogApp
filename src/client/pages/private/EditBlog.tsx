@@ -12,8 +12,8 @@ const EditBlog = (props: EditBlogProps) => {
     const { id } = useParams<{ id: string }>()
     const history = useHistory<{ history: string }>()
 
-    const [title, setTitle] = useState('')
-    const [content, setContent] = useState('')
+    const [title, setTitle] = useState(null)
+    const [content, setContent] = useState(null)
 
     useEffect(() => {
         apiService(`/api/blogs/${id}`)

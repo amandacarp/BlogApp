@@ -8,14 +8,13 @@ const Navbar = () => {
 
     const [info, setInfo] = useState<IProfileInfo>(null);
 
+    //grab profile info in order to display welcome, first_name in nav
    useEffect(() => {
         apiService(`/api/authors/profile`)
             .then(result => {
                 setInfo(result.profile);
             })
     }, [])
-
-
     const token = localStorage.getItem(TOKEN_KEY)
 
     if (!token) {

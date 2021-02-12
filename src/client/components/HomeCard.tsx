@@ -21,7 +21,7 @@ const HomeCard = ({ blog }: HomeCardProps) => {
                         <line x1="8" y1="12" x2="8" y2="12.01" />
                         <line x1="16" y1="12" x2="16" y2="12.01" />
                     </svg>{blog?.num_of_comments}</p>
-                    <Link id="buttonSingle" className="btn shadow" to={`/${blog?.id}`}>View Blog</Link>
+                    <Link id="buttonSingle" className="btn shadow" to={`/blog/${blog?.id}`}>View Blog</Link>
                 </div>
             </div>
         </div>
