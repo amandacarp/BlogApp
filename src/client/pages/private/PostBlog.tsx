@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import apiService from '../../utils/api-service';
+import ReactTooltip from 'react-tooltip';
+
 
 const PostBlog = (props: PostBlogProps) => {
 
@@ -37,28 +39,39 @@ const PostBlog = (props: PostBlogProps) => {
 
     return (
         <>
-        <div className="container">
-            <div className="form-group">
-                <label id="label">Enter your Title</label>
-                <input type="text" className="form-control" onChange={event => setTitle(event.target.value)} />
+        <ReactTooltip />
+
+            <div className="container">
+                <div className="form-group">
+                    <label id="label">Enter your Title</label>
+                    <input type="text" className="form-control" onChange={event => setTitle(event.target.value)} />
+                </div>
+                <div>
+                    <label id="label">Choose your Blog Tags</label>
+                    <Select id="labelSelect" isMulti options={tags?.map((tag: { id: number; name: string; }) => {
+                        return { value: tag.id, label: tag.name }
+                    })} onChange={(selectedOptions) => setSelectedTags(selectedOptions)}></Select>
+                </div>
+                <div className="form-group mt-2">
+                    <label id="label">Post your blog here</label>
+                    <textarea rows={20} className="form-control" onChange={event => setContent(event.target.value)}></textarea>
+                </div>
+                <small className="d-block charcount">{content?.length || 0} / 5,000</small>
+                <div className="d-flex justify-content-around">
+                    <button data-tip="Post Blog" id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => postBlog()}><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-file-plus" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                        <line x1="12" y1="11" x2="12" y2="17" />
+                        <line x1="9" y1="14" x2="15" y2="14" />
+                    </svg></button>
+                    <button data-tip="Go Back" id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => history.goBack()}> <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-back" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1" />
+                    </svg></button>
+                </div>
             </div>
-            <div>
-                <label id="label">Choose your Blog Tags</label>
-                <Select id="labelSelect" isMulti options={tags?.map((tag: { id: number; name: string; }) => {
-                    return { value: tag.id, label: tag.name }
-                })} onChange={(selectedOptions) => setSelectedTags(selectedOptions)}></Select>
-            </div>
-            <div className="form-group mt-2">
-                <label id="label">Post your blog here</label>
-                <textarea rows={20} className="form-control" onChange={event => setContent(event.target.value)}></textarea>
-            </div>
-            <small className="d-block charcount">{content?.length || 0} / 5,000</small>
-            <div className="d-flex justify-content-around">
-                <button id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => postBlog()}>Post your Blog</button>
-                <button id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => history.goBack()}> Go Back</button>
-            </div>
-        </div>
-</>
+        </>
     )
 }
 

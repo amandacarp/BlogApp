@@ -60,7 +60,8 @@ export const setStorage = (token: string) => {
 
 export const logout = () => {
     localStorage.removeItem(TOKEN_KEY);
-    // window.location.reload(true); LOOK UP HISTORY.LISTEN
+    window.location.reload(true); 
+    // LOOK UP HISTORY.LISTEN
 }
 
 export default apiService;

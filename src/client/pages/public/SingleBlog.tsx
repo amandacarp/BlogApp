@@ -4,6 +4,8 @@ import { IBlog, BlogTags, Comments } from '../../../common/types';
 import { useParams } from 'react-router-dom'
 import BlogCard from '../../components/BlogCard';
 import apiService from '../../utils/api-service';
+import ReactTooltip from 'react-tooltip';
+
 
 const SingleBlog = (props: singleBlogProps) => {
     const { id } = useParams<{ id: string }>()
@@ -52,6 +54,8 @@ const SingleBlog = (props: singleBlogProps) => {
 
     return (
         <>
+        <ReactTooltip />
+
             <BlogCard key={blog?.id} blog={blog} blogTag={blogTag} />
 
             <section className="row justify-content-center mt-3 ml-3 mr-3">
@@ -59,7 +63,7 @@ const SingleBlog = (props: singleBlogProps) => {
                     <form className="form-group bg-white border p-3 mb-3">
                         <label id="labelSelect" htmlFor="comment content">Post your Comment Here!</label>
                         <textarea value={content} onChange={e => setContent(e.target.value)} rows={2} className="form-control" />
-                        <button id="buttonSingle" onClick={handleAddComment} className="btn mt-2">
+                        <button data-tip="Add Comment" id="buttonSingle" onClick={handleAddComment} className="btn mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-message-plus" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4" />
