@@ -19,8 +19,9 @@ const Search = (props: SearchProps) => {
 	}, [searchTerm]);
 
 	return (
-		<main className="container">
-			<section className="row justify-content-center mt-3">
+		<>
+		<div className="container">
+			<div className="row justify-content-center">
 				<div className="col-md-4">
 					<form className="form-group">
 						<span className="d-flex">
@@ -38,13 +39,14 @@ const Search = (props: SearchProps) => {
 						</span>	
 					</form>
 				</div>
-			</section>
-			<section className="row justify-content-center mt-3">
+				</div>
+				</div>
+			<section className="row  mt-3">
 				{blogs.map(blog => (
 					<HomeCard key={blog.id} blog={blog} />
 				))}
 			</section>
-		</main>
+			</>
 	);
 };
 
