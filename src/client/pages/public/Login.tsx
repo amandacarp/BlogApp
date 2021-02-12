@@ -27,8 +27,6 @@ const Login = (props: LoginProps) => {
                 icon: 'error',
             })
         }
-        console.log(token)
-        
         // window.location.reload(true); look up history.listen
 
     };

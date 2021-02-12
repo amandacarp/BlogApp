@@ -24,20 +24,18 @@ const Search = (props: SearchProps) => {
 				<div className="col-md-4">
 					<form className="form-group">
 						<span className="d-flex">
-						<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
-							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-							<circle cx="10" cy="10" r="7" />
-							<line x1="21" y1="21" x2="15" y2="15" />
-						</svg>
 						<input
 							placeholder="search for blogs by title ..."
 							value={searchTerm}
 							onChange={e => setSearchTerm(e.target.value)}
 							className="form-control"
 						/>
-						</span>
-						
-	
+						<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<circle cx="10" cy="10" r="7" />
+							<line x1="21" y1="21" x2="15" y2="15" />
+						</svg>
+						</span>	
 					</form>
 				</div>
 			</section>

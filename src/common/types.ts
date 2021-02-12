@@ -20,6 +20,7 @@ export interface IBlog {
 	username?: Author['username'];
 	first_name?: Author['first_name'];
 	last_name?: Author['last_name'];
+	num_of_comments?: number
 
 }
 
