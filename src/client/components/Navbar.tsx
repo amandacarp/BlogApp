@@ -9,7 +9,7 @@ const Navbar = () => {
     const [info, setInfo] = useState<IProfileInfo>(null);
 
     //grab profile info in order to display welcome, first_name in nav
-   useEffect(() => {
+    useEffect(() => {
         apiService(`/api/authors/profile`)
             .then(result => {
                 setInfo(result.profile);
@@ -54,6 +54,12 @@ const Navbar = () => {
 	        <div className="button__horizontal"></div>
                             <div className="button__vertical"></div>
                         </Link> </button>
+
+                        <button> <Link to='/blogs/donate' className="button">
+                            Donate
+	        <div className="button__horizontal"></div>
+                            <div className="button__vertical"></div>
+                        </Link> </button>
                     </p>
                 </div>
             </>
@@ -85,10 +91,16 @@ const Navbar = () => {
                     </Link> </button>
 
                     <button> <Link to='/blogs/search' className="button">
-                            Search
+                        Search
 	        <div className="button__horizontal"></div>
-                            <div className="button__vertical"></div>
-                        </Link> </button>
+                        <div className="button__vertical"></div>
+                    </Link> </button>
+
+                    <button> <Link to='/blogs/donate' className="button">
+                        Donate
+	        <div className="button__horizontal"></div>
+                        <div className="button__vertical"></div>
+                    </Link> </button>
 
                 </p>
             </div>

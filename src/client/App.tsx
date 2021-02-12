@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
 import './scss/app';
+
 import Blogs from './pages/public/Blogs';
 import SingleBlog from './pages/public/SingleBlog';
 import EditBlog from './pages/private/EditBlog';
@@ -12,6 +14,11 @@ import Profile from './pages/private/Profile';
 import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar';
 import Search from './pages/public/Search';
+import Donate from './pages/public/Donate';
+import { Elements } from '@stripe/react-stripe-js';
+
+
+const stripePromise = loadStripe('pk_test_51IK8ieDwWul8thRF43Y5ZoDk3jdeMYU4Ru233rwMYoGuvaxW8Fnkky2AR3YPzgthUolyuKJsXZQzLUTssv4730rh00b0RHKTm3');
 
 const App = (props: AppProps) => {
     return (
@@ -25,6 +32,13 @@ const App = (props: AppProps) => {
                     <PrivateRoute exact path='/:id/edit'> <EditBlog /> </PrivateRoute>
                     <Route exact path='/blogs/login' component={Login} />
                     <Route exact path='/blogs/register' component={Register} />
+
+                    <Route exact path='/blogs/donate'>
+                   <Elements stripe={stripePromise}>
+                   <Donate />  
+                   </Elements>
+                    </Route> 
+
                     <PrivateRoute exact path='/blogs/post'> <PostBlog /> </PrivateRoute>
                     <PrivateRoute exact path='/blogs/profile'> <Profile /> </PrivateRoute>
                     <Route path="*" component={NotFound} />

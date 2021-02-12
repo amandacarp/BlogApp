@@ -13,6 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.2.2",
+    "@stripe/stripe-js": "^1.12.1",
     "@types/bcrypt": "^3.0.0",
     "@types/compression": "^1.7.0",
     "@types/dotenv": "^8.2.0",
@@ -51,6 +53,7 @@
     "react-select": "^4.0.2",
     "react-tooltip": "^4.2.13",
     "sass-loader": "^7.3.1",
+    "stripe": "^8.135.0",
     "style-loader": "^0.23.1",
     "sweetalert2": "^10.14.0",
     "ts-loader": "^5.4.5",
