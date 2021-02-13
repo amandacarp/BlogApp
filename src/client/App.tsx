@@ -15,6 +15,8 @@ import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar';
 import Search from './pages/public/Search';
 import Donate from './pages/public/Donate';
+import Contact from './pages/public/Contact';
+import Footer from './components/Footer';
 import { Elements } from '@stripe/react-stripe-js';
 
 
@@ -41,8 +43,10 @@ const App = (props: AppProps) => {
 
                     <PrivateRoute exact path='/blogs/post'> <PostBlog /> </PrivateRoute>
                     <PrivateRoute exact path='/blogs/profile'> <Profile /> </PrivateRoute>
+                    <Route exact path='/blogs/contact'> <Contact /> </Route>
                     <Route path="*" component={NotFound} />
                 </Switch>
+                <Footer />
             </>
             
         </Router>

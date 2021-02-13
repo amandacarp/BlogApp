@@ -63,8 +63,8 @@ const SingleBlog = (props: singleBlogProps) => {
                     <form className="form-group bg-white border p-3 mb-3">
                         <label id="labelSelect" htmlFor="comment content">Post your Comment Here!</label>
                         <textarea value={content} onChange={e => setContent(e.target.value)} rows={2} className="form-control" />
-                        <button data-tip="Add Comment" id="buttonSingle" onClick={handleAddComment} className="btn mt-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-message-plus" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <button data-tip="Add Comment" id="buttonSingle" onClick={handleAddComment} className="btn mt-2 shadow">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-message-plus" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4" />
                                 <line x1="10" y1="11" x2="14" y2="11" />
@@ -77,7 +77,7 @@ const SingleBlog = (props: singleBlogProps) => {
                     <ul className="list-group d-flex">
                         {comments?.map(comment => (
                             <li key={comment?.id} className="list-group-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-messages" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#fc575e" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-messages" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                     <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
                                     <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />

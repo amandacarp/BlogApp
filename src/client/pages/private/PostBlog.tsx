@@ -58,14 +58,14 @@ const PostBlog = (props: PostBlogProps) => {
                 </div>
                 <small className="d-block charcount">{content?.length || 0} / 5,000</small>
                 <div className="d-flex justify-content-around">
-                    <button data-tip="Post Blog" id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => postBlog()}><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-file-plus" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <button data-tip="Post Blog" id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => postBlog()}><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-file-plus" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M14 3v4a1 1 0 0 0 1 1h4" />
                         <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
                         <line x1="12" y1="11" x2="12" y2="17" />
                         <line x1="9" y1="14" x2="15" y2="14" />
                     </svg></button>
-                    <button data-tip="Go Back" id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => history.goBack()}> <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-back" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <button data-tip="Go Back" id="button" type="button" className="btn shadow mt-2 mx-4" onClick={() => history.goBack()}> <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-back" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1" />
                     </svg></button>
