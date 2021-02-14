@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import apiService, { setStorage } from '../../utils/api-service';
 
 const Register = (props: RegisterProps) => {
@@ -15,9 +16,18 @@ const Register = (props: RegisterProps) => {
 
     const handleRegister = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        if(!values.email || !values.first_name|| !values.last_name|| !values.password|| !values.username) {
+            Swal.fire({
+                title: `Error`,
+                icon: 'error',
+                text: 'Please fill out all the required fields',
+            })
+        } else {
         const token = await apiService('/auth/register', 'POST', values)
         setStorage(token)
         history.push('/blogs/profile')
+        window.location.reload(true);
+    }
     };
 
 
@@ -40,27 +50,27 @@ const Register = (props: RegisterProps) => {
 
                         <div className="form-group mt-4">
                             <label id="label">First Name</label>
-                            <input type="text" className="form-control" name="first_name" value={values.first_name || ''} onChange={handleChanges} />
+                            <input type="text" className="form-control" name="first_name" value={values.first_name || ''} onChange={handleChanges} required/>
                         </div>
 
                         <div className="form-group mt-2">
                             <label id="label">Last Name</label>
-                            <input type="text" className="form-control" name="last_name" value={values.last_name || ''} onChange={handleChanges} />
+                            <input type="text" className="form-control" name="last_name" value={values.last_name || ''} onChange={handleChanges} required/>
                         </div>
 
                         <div className="form-group mt-2">
                             <label id="label">Username</label>
-                            <input type="text" className="form-control" name="username" value={values.username || ''} onChange={handleChanges} />
+                            <input type="text" className="form-control" name="username" value={values.username || ''} onChange={handleChanges} required/>
                         </div>
 
                         <div className="form-group mt-2">
                             <label id="label">Email Address</label>
-                            <input type="text" className="form-control" name="email" value={values.email || ''} onChange={handleChanges} />
+                            <input type="text" className="form-control" name="email" value={values.email || ''} onChange={handleChanges} required/>
                         </div>
 
                         <div className="form-group mt-2">
                             <label id="label">Password</label>
-                            <input type="password" className="form-control" name="password" value={values.password || ''} onChange={handleChanges} />
+                            <input type="password" className="form-control" name="password" value={values.password || ''} onChange={handleChanges} required/>
                         </div>
                         <div className="d-flex justify-content-end">
                             <button id="button" type="button" className="btn shadow mt-2 mx-4" onClick={handleRegister} >

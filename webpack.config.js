@@ -13,9 +13,11 @@ const serverConfig = {
                 options: {
                     configFile: 'tsconfig.server.json'
                 }
-            }
+            },
+            
         ]
     },
+
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
     },
@@ -51,7 +53,13 @@ const clientConfig = {
                 'css-loader',
                 'sass-loader',
             ]
-        }
+        },
+          {
+            test: /\.(png|jpg|gif)$/,
+            use: {
+                loader: 'file-loader',
+            },
+        },
       ]
     },
     resolve: {

@@ -16,6 +16,13 @@ const Login = (props: LoginProps) => {
 
     const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        if(!values.email ||  !values.password) {
+            Swal.fire({
+                title: `Error`,
+                icon: 'error',
+                text: 'Please fill out all the required fields',
+            })
+        } else {
         const token = await apiService('/auth/login', 'POST', values)
         if (token) {
             setStorage(token)
@@ -28,7 +35,7 @@ const Login = (props: LoginProps) => {
             })
         } window.location.reload(true);
         //  look up history.listen
-
+    }
     };
 
     return (
@@ -52,7 +59,7 @@ const Login = (props: LoginProps) => {
                                 <rect x="3" y="5" width="18" height="14" rx="2" />
                                 <polyline points="3 7 12 13 21 7" />
                             </svg></label>
-                            <input placeholder="Enter your Email Address" type="text" className="form-control" name="email" value={values.email || ''} onChange={handleChanges} />
+                            <input placeholder="Enter your Email Address" type="text" className="form-control" name="email" value={values.email || ''} onChange={handleChanges} required/>
                         </div>
 
                         <div className="form-group mt-2">
@@ -63,7 +70,7 @@ const Login = (props: LoginProps) => {
                                 <line x1="18" y1="5" x2="20" y2="7" />
                                 <line x1="15" y1="8" x2="17" y2="10" />
                             </svg></label>
-                            <input placeholder="Enter your Password" type="password" className="form-control" name="password" value={values.password || ''} onChange={handleChanges} />
+                            <input placeholder="Enter your Password" type="password" className="form-control" name="password" value={values.password || ''} onChange={handleChanges} required/>
                         </div>
                         <div className="d-flex justify-content-end">
                             <button id="button" type="button" className="btn shadow mt-2 mx-4" onClick={handleLogin}><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-login" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">

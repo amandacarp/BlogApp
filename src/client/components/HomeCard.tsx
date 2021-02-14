@@ -4,39 +4,38 @@ import { Link } from 'react-router-dom';
 import { IBlog } from '../../common/types';
 import ReactTooltip from 'react-tooltip';
 
-
 const HomeCard = ({ blog }: HomeCardProps) => {
     return (
         <>
-        <ReactTooltip />
-    
-        <div key={blog?.id} className="col-md-4">
-            <div className="card m-3" >
-                <div className="card-header text-center">{blog?.title}
-                    <p className='card-text'>By: {blog?.first_name} {blog?.last_name}</p>
-                </div>
-                <div className="card-body d-flex justify-content-center">
-                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUSEhIVFRUVFRUVFxcVFRUVFRUVFRUXFxcXFRUYHSggGBolHRUXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQFy0dHR0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAaAAADAQEBAQAAAAAAAAAAAAAAAQIDBAcF/8QAKRABAQACAQMCBAcBAAAAAAAAAAECERIDIfBBURMxYXGRobHB0eHxgf/EABkBAQEBAQEBAAAAAAAAAAAAAAECAAMFBP/EABwRAQEBAQEBAQEBAAAAAAAAAAABEQISIQMTQf/aAAwDAQACEQMRAD8A9C4+pXH6rnY7Pp83N7eomM9xF8PzVjj69v3+zD0UwO4+fwrHHa8MPocTekY4q4+ei8Z7HMfOzIvSZj5DuE8/hWOF+7TgyfTKNenlT4jiU262nUOdRlAzn5jo+IXxHNujY1vEb3rMs877p0djKnMhY51dtZ5QXY0410mVMzLLNtbG8itfRhh1G3NtRZYej4s+ca43sybqLgVjWFC2suCcsW6JGM6ZcSuLfSeJV6Y8TuMacRwY6y43zZN9ebDYPT5Nx7tZPPVfw9efufD7Nj6L0jXbzyDjv7tLiWvp5/0J0sZ5Gmk4tMd9im0T6DXnnzXMVY4Mi9J4q4q4KkZN6RxORZ6Yaz0OLSpyDanik8qmgwFsoWVGqVajbPqZWFjNzfbsnVyfG19B5/qcF1tCcsSMZQayd/g36XV+rGYfoeOB1rldPMcmN7LmatcrFqZ803KnUtbmGdxV08iy9HxTchz9i31XEI+LQxysuph7T8kZYu1j1YxnbnkGMPI8ay9ExaTAsVyMm0sMVSKg2yNExVIWzCdI9po2zDaLVK0DKy0WUVllqIw6nulWjimxtSyxFOsLgXH2b8E3HSaqdI4NOn0W3SkVlj7FF7/xz8FY4NJ060kAvbPHHQmG2sKqTrLqdOVnh0vd0ppM6Y/CF6bUidc8wq8FphOqmCpiWxyIHwvOwKdTzuDo2r0nJek9THsUxy5nTmF9TmIddLFrjWelcpGTVX3KZI+Js9p1LXkNseZ8xoabCMci5XTaWlLmmQ5E6yc9jGd2kwLjoHVQrA26ePZhuMkumYJnTFjekdGNT0Cm3U6M9EBoFgTa2mC1Npp0dKaNHcShhExGtA1MNop2mWRxntAvRE63uIsZ/ELnVIynlIm6PY0C5urPSI412cU/DSr05sYe66Lgj4YrbGMXiu9I+CRsTjielaVANTo8ZpehYzafJOWQ0OI1vidtelWdwGA03K6KekY5LmStcxsCgMVJSbRayaciLTmadVh6Kleoi5H0cq8qTPY2qU4qpuSLkFyqxXIc03EaUfh7BUELkVChxSdEioJFQJ0aPQOBOlxEwUEjWWWA4tCTW1no5GkhaDaWgejkB1Gl44jSsWbU2UscGhtjaUg0oqWKkZIrJtRpomxNVKiwtLsKpOs9EuRNjRWpKq4ji6RtKFpQdI2p0cMaXBoBkoaejiYfIo1eJxnMx8QDWsOVnzg5pGtZRWUzLPqJtGtYnKpxyPaLW1Up7TD0NbVYqiYqFtOGUBOqBSmzAhaASpGKmskWGmpJFRSB0rE7PIjG0FRAvltAGdRt1g1fItp2Nxcib0LDZ7Bb0XMTJhh1mdz9v6NR6dXUzY/Fu/mWxiij006eda4z12jp4tImxvS5S0LmJUWD0rFcRjVQNqlRJypOqlOFIZOnBQCRs9kGY9nKmiA6oFKC2ipqqScOoqV6TRjanQPZclSNpEjLPTDLqenn4rkRe22XUiY5rn7ll1Pr3dJHO/pHRyRl1mHxf5Z9XrdnScov6xvl1PoThud+v5B08OX94132+acb3/7Pfz/Tl+/7FMqbyj+rT4l8/hrh1fPm5pWmE+6Ly0/WumdVdyYYLxc7FzvWuLTbHGtJXOxU6bY1UrKZLlc66TppDiJVYpVq5T2mUbY6uGg5VHTBbGy2mCDYdAmRE2Nq7kXNFqWxvS71GfxirO1sF6HV6jK08kZVc5cuuxcu3uy2q1nnXXnlx67L9k5K7I38nWRxvSMst/LzzRXasr2Z/L5x0kc70PxBcvrfxCsT6XJ9++/mdZ8vsc9bfPuLDq/qqXV+f8s5O8/ZeE/xNhla45fwrkzwq8b+LlYudNsKvGscb9u35NMXKx15raVWNY45NMXKx1laSqZxW04uVpKe2cVtjq5RtGz2cOr2W07GzI2qG02kcGquRJo5nG9HsrS2nLI43oZZM8qMqjLIyOd7GTO/X+zkqMnScuXXRb8/lHlVb6ozrpI42lf+fj+qcsR8/n5pGV9vP+OkiL0XL79ikVvft5tnnlPp/f71UiLUbnl/o02XybC8TtOeerTfr6e2u/8ATDl37tZe/wBBY2rwxaT9PnpEznfz81SfKoq5T5b7q5Iw+fn6LmLnYqNML7tJWOOTaOVjpzWkqpmy/wCjfu52OnpvKuZMcavaLHSVe1bZTI5WxXppDlZ7OZHG1psrknYpxtVaW03JOdVIL0u0bZ7FpwarOlanZWqxN6K5d0XLv9Dt8/xnclSIvSss0ovntE51cjnejidFMp5BMlSI2FsWefx7C31/pnc/7XImpz33rHL3s/RWWXf5I6l+65HOql+4YZ5zfz0ZxOrxm/zaY26/QBqqLxnr/jTvr8gHOqgxynfz6tJe8gCbFSqx91TIw510hSrtAc6uKxyVjTCVc1Up7IJxZ7EoBkbT2JfUgSeVK5AKianfqPsYUE788+yM8tbAMiOr8Rv2/wAR1L37ALkTUW+fym0BUc+jmPb7puM8+4CoLE2+zK/PXn3AVEVOWX59kZ77etAVE0sde2yAUl//2Q==" alt=""/>
+            <ReactTooltip />
+
+            <div key={blog?.id} className="col-md-4">
+                <div className="card m-3" >
+                    <div className="card-header text-center">{blog?.title}
+                        <p className='card-text'>By: {blog?.first_name} {blog?.last_name}</p>
                     </div>
-                <div className="card-footer text-muted d-flex justify-content-between">
-                    <p className="card-text">Last updated {moment(blog?._created).startOf('minute').fromNow()} at {moment(blog?._created).format('h:mm a')}</p>
-                    <p className="card-text"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-message-circle" width="20" height="20" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" />
-                        <line x1="12" y1="12" x2="12" y2="12.01" />
-                        <line x1="8" y1="12" x2="8" y2="12.01" />
-                        <line x1="16" y1="12" x2="16" y2="12.01" />
-                    </svg>{blog?.num_of_comments}</p>
-                    <Link data-tip="View Blog" id="buttonSingle" className="btn shadow" to={`/blog/${blog?.id}`}><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-file-info" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-                        <path d="M11 14h1v4h1" />
-                        <path d="M12 11h.01" />
-                    </svg></Link>
+                    <div className="card-body d-flex justify-content-center">
+                    <img src="data:image/jpeg;base64,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" alt=""/>
+                    </div>
+                    <div className="card-footer text-muted d-flex justify-content-between">
+                        <p className="card-text">Last updated {moment(blog?._created).startOf('minute').fromNow()} at {moment(blog?._created).format('h:mm a')}</p>
+                        <p className="card-text"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-message-circle" width="20" height="20" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" />
+                            <line x1="12" y1="12" x2="12" y2="12.01" />
+                            <line x1="8" y1="12" x2="8" y2="12.01" />
+                            <line x1="16" y1="12" x2="16" y2="12.01" />
+                        </svg>{blog?.num_of_comments}</p>
+                        <Link data-tip="View Blog" id="buttonSingle" className="btn shadow" to={`/blog/${blog?.id}`}><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-file-info" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                            <path d="M11 14h1v4h1" />
+                            <path d="M12 11h.01" />
+                        </svg></Link>
+                    </div>
                 </div>
             </div>
-        </div>
 
         </>
     )

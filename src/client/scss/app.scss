@@ -1,8 +1,71 @@
+//background
+body, html{
+  background: 
+    linear-gradient(45deg, #ddd6d3 50%, transparent 50%),
+    radial-gradient(#eee2e0  4px, transparent 4px),
+    radial-gradient(#eee2e0  4px, transparent 4px),
+    transparent;
+  background-size: 100%, 24px 24px, 24px 24px, 100%;
+  background-position: 0 0, -2px 6px, 10px 18px, 0 0;
+  min-height: 100%;
+}
 
+//jumbotrons
+#jumboFoot{
+  bottom: 0;
+  background-color: #90d5ec;
+  background-image: linear-gradient(315deg, #737575 0%, #949393 74%);
+  padding-top: 2em;
+  padding-bottom: 1em;
+  margin-bottom: 0px;
+  opacity: 60%;
+}
+
+#jumbo{
+  background-color: #90d5ec;
+  background-image: linear-gradient(315deg, #737575 0%, #949393 74%);
+  padding-top: 1%;
+  padding-bottom: 1%;
+  opacity: 60%;
+
+}
+
+//texts
 .charcount{
   color: #7e858d;
 }
 
+.jumbotext{
+  color: white;
+  font-family: 'Big Shoulders Display', cursive;
+}
+
+.card{
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.profile{
+font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#label{
+  color: #7e858d;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+#labelSelect{
+  color: black;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+.form-control{
+  font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+//buttons
 .btn{
     box-shadow: 0 0 1px #ccc;
     transition: all 0.3s ease-in-out;
@@ -97,80 +160,26 @@
 	
 }
 
-body, html {
-  background-color: #ddd6d3;
-  background-image: -webkit-linear-gradient(420deg, #eee2e0 35%, #f8f7f4 35%);
-};
-
-#jumbo{
-  background-color: #90d5ec;
-  background-image: linear-gradient(315deg, #737575 0%, #949393 74%);
-    padding-top: 1%;
-    padding-bottom: 1%;
-    opacity: 80%;
-
-}
-
-  #jumboFoot{
-      bottom:0;
-      background-color: #90d5ec;
-      background-image: linear-gradient(315deg, #737575 0%, #949393 74%);
-      padding-top: 2em;
-      padding-bottom: 1em;
-      margin-bottom: 0px;
-      opacity: 60%;
-}
-
-.jumbotext{
-    color: white;
-    font-family: 'Big Shoulders Display', cursive;
-}
-
-.card{
-    font-family: 'Open Sans Condensed', sans-serif;
-}
-
-.profile{
-  font-family: 'Open Sans Condensed', sans-serif;
-}
-
 #button{
-    margin-bottom: 3rem;
-    background-color: #eee2e0;
-    color: #7e858d;
-    font-family: 'Open Sans Condensed', sans-serif;
+  margin-bottom: 3rem;
+  background-color: #eee2e0;
+  color: #7e858d;
+  font-family: 'Open Sans Condensed', sans-serif;
 
 }
 
 #buttonSingle{
-    background-color: #eee2e0;
-    color: #7e858d;
-    font-family: 'Open Sans Condensed', sans-serif;
+  background-color: #eee2e0;
+  color: #7e858d;
+  font-family: 'Open Sans Condensed', sans-serif;
 
 }
 
 #buttonSingle:hover{
-  transform: scale(1.1);
+transform: scale(1.1);
 }
 
-
-#label{
-    color: #7e858d;
-    font-family: 'Open Sans Condensed', sans-serif;
-
-}
-
-#labelSelect{
-    color: black;
-    font-family: 'Open Sans Condensed', sans-serif;
-
-}
-
-.form-control{
-    font-family: 'Open Sans Condensed', sans-serif;
-
-}
-
+//404 page- ghost
 $white: #EDEDED;
 $gray: #BFC0C0;
 $dark: #585959;
@@ -312,7 +321,6 @@ $light: #D3DEEA;
   margin-top: 10px;
 }
 
-/*text styling*/
 .ghosth1 {
   color: $white;
   text-align: center;

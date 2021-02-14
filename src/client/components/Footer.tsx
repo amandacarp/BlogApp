@@ -5,8 +5,7 @@ const Footer = (props: FooterProps) => {
     return (
             <>
             
-            <footer className="jumbotext" id="jumboFoot">
-                <div className="container">
+            <footer className="jumbotron jumbotext" id="jumboFoot">
                     <p className="lead d-flex justify-content-around">
 
                         <button> <Link to='/blogs/donate' className="button">
@@ -21,7 +20,6 @@ const Footer = (props: FooterProps) => {
                         <div className="button__vertical"></div>
                     </Link> </button>
                     </p>
-                </div>
                 </footer>
               
             </>
