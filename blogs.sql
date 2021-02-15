@@ -9,7 +9,7 @@ CREATE TABLE Authors (
     last_name varchar(50) not null,
     username varchar(50) not null,
     email varchar(50) not null unique,
-    password varchar(150) not null,
+    password varchar(50) not null,
     _created datetime default current_timestamp on update current_timestamp);
     
     
@@ -17,7 +17,7 @@ DROP TABLE Blogs;
 CREATE TABLE Blogs (
 id int not null auto_increment primary key,
 title varchar(160) not null, 
-content varchar(5000) not null,
+content varchar(10000) not null,
 authorid int not null,
 _created datetime default current_timestamp on update current_timestamp,
 foreign key (authorid) references Authors(id));
