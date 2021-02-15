@@ -7,3 +7,5 @@ This app is built with:
 - Passport JS
 - Express JS
 - MySQL
+- Stripe
+- Mailgun
