@@ -47,12 +47,6 @@ BEGIN
     END //
 delimiter ; 
 
-CREATE USER 'blogsapp'@'localhost' IDENTIFIED BY 'password';
-
-GRANT ALL PRIVILEGES ON blogs. * TO 'blogsapp'@'localhost';
-
-ALTER USER 'blogsapp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-
 
 CREATE TABLE comments (
     id INT NOT NULL AUTO_INCREMENT,
@@ -67,9 +61,4 @@ CREATE TABLE comments (
         REFERENCES Blogs (id)
 );
 
-SELECT * FROM BLOGS;
-
-SELECT * FROM Authors;
-
-SELECT * FROM comments;
 
