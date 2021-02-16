@@ -9,7 +9,7 @@ const HomeCard = ({ blog }: HomeCardProps) => {
         <>
             <ReactTooltip />
 
-            <div key={blog?.id} className="col-md-4">
+            <div className="col-md-4">
                 <div className="card m-3" >
                     <div className="card-header text-center">{blog?.title}
                         <p className='card-text'>By: {blog?.first_name} {blog?.last_name}</p>

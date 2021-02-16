@@ -46,7 +46,7 @@ const Donate = (props: DonateProps) => {
                     </div>
                 </div>
 
-                <div className="row justify-content-center">
+                <div className="row justify-content-center mt-3">
                     <div className="col-md-4">
                         <div className="form-group mt-2">
                             <label id="label"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-forms" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">

@@ -32,14 +32,14 @@ const SingleBlog = (props: singleBlogProps) => {
             .then(blogTag => setSingleBlogTag(blogTag));
     }, [id])
 
-    //check to see if there are new comments every second 
+    //check to see if there are new comments
     useEffect(() => {
         const commentPoll = setInterval(async () => {
             const comments = await apiService(`/api/comments/blogs/${id}`);
             setComments(comments);
         }, 60000);
 
-        return () => clearInterval(commentPoll);
+        return () => clearInterval(commentPoll); //cleanup function
     }, []);
 
 
