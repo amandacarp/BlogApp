@@ -15,21 +15,21 @@ const MobileNavbar = () => {
                     <p className="lead">Welcome, please enjoy!</p>
                     <hr className="my-4"></hr>
                     <p className="lead d-flex justify-content-around">
-                        <button> <Link to='/'>
+                        <Link to='/' id="button" className="btn shadow">
                             Go Home
-                        </Link> </button>
+                        </Link> 
 
-                        <button> <Link to='/blogs/post' id="buttonSingle" className="btn shadow">
+                        <Link to='/blogs/post' id="button" className="btn shadow">
                             Post a Blog
-                        </Link> </button>
+                        </Link> 
 
-                        <button> <Link to='/blogs/profile' id="buttonSingle" className="btn shadow">
+                        <Link to='/blogs/profile' id="button" className="btn shadow">
                             Go To Your Profile
-                        </Link> </button>
+                        </Link> 
 
-                        <button> <Link to='/blogs/search' id="buttonSingle" className="btn shadow">
+                        <Link to='/blogs/search' id="button" className="btn shadow">
                             Search
-                        </Link> </button>
+                        </Link> 
                     </p>
                 </div>
 
@@ -44,25 +44,25 @@ const MobileNavbar = () => {
                     <p className="lead">Welcome, please enjoy!</p>
                     <hr className="my-4"></hr>
                     <p className="lead d-flex justify-content-around">
-                        <button> <Link to='/' id="buttonSingle" className="btn shadow">
+                        <Link to='/' id="button" className="btn shadow">
                             Go Home
-                        </Link> </button>
+                        </Link> 
 
-                        <button> <Link to='/blogs/post' id="buttonSingle" className="btn shadow">
+                        <Link to='/blogs/post' id="button" className="btn shadow">
                             Post a Blog
-                        </Link> </button>
+                        </Link> 
 
-                        <button> <Link to='/blogs/register' id="buttonSingle" className="btn shadow">
+                        <Link to='/blogs/register' id="button" className="btn shadow">
                             Register New User
-                        </Link> </button>
+                        </Link> 
 
-                        <button> <Link to='/blogs/login' id="buttonSingle" className="btn shadow">
+                        <Link to='/blogs/login' id="button" className="btn shadow">
                             Login
-                        </Link> </button>
+                        </Link> 
 
-                        <button> <Link to='/blogs/search' id="buttonSingle" className="btn shadow">
+                        <Link to='/blogs/search' id="button" className="btn shadow">
                             Search
-                        </Link> </button>
+                        </Link> 
                     </p>
                 </div>
 
