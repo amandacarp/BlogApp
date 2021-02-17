@@ -46,9 +46,9 @@ const Register = (props: RegisterProps) => {
                     </div>
                 </div>
                 <div className="row justify-content-center m-4">
-                    <div className="col-6">
+                    <div className="col-md-4">
 
-                        <div className="form-group mt-4">
+                        <div className="form-group mt-2">
                             <label id="label">First Name</label>
                             <input type="text" className="form-control" name="first_name" value={values.first_name || ''} onChange={handleChanges} required/>
 

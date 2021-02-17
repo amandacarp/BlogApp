@@ -26,7 +26,7 @@ const Contact = (props: ContactProps) => {
         <>
             <div className="container">
                 <div className="row justify-content-center m-4">
-                    <div className="col-6">
+                    <div className="col-md-4">
                         <div className="form-group mt-2">
                             <label id="label"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-mail" width="20" height="20" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
