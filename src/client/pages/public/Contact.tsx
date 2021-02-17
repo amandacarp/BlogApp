@@ -11,6 +11,13 @@ const Contact = (props: ContactProps) => {
 
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        if(!email ||  !subject || !body) {
+            Swal.fire({
+                title: `Error`,
+                icon: 'error',
+                text: 'Please fill out all the required fields',
+            })
+        } else {
         const result = await apiService('/api/contact', "POST", ({ email, subject, content: body }));
         setEmail('');
         setSubject('');
@@ -21,6 +28,7 @@ const Contact = (props: ContactProps) => {
             icon: 'success',
         })
     }
+}
 
     return (
         <>

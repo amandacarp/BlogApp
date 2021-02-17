@@ -15,7 +15,7 @@ const HomeCard = ({ blog }: HomeCardProps) => {
                         <p className='card-text'>By: {blog?.first_name} {blog?.last_name}</p>
                     </div>
                     <div className="card-body d-flex justify-content-center">
-                        <img src="/assets/pastels.jpeg" alt="pastel" />
+                    <Link  to={`/blog/${blog?.id}`}> <img src="/assets/pastels.jpeg" alt="pastel" /></Link>
                     </div>
                     <div className="card-footer text-muted d-flex justify-content-between">
                         <p className="card-text">Last updated {moment(blog?._created).startOf('minute').fromNow()} at {moment(blog?._created).format('h:mm a')}</p>

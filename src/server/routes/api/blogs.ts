@@ -34,6 +34,7 @@ router.delete('/:id?', passport.authenticate('jwt'), async (req: any, res) => {
     const authorid: Author['id'] = req.user.authorid
     try {
         await db.BlogTags.destroy(id)
+        .then(() => {db.Comments.destroy(id)})
         .then(() => {db.Blogs.delete_blog(id, authorid)})
         res.status(200).send(`Blog ${id} deleted`)
         console.log(`Blog ${id} deleted`)

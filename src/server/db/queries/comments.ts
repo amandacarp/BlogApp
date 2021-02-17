@@ -13,9 +13,10 @@ FROM
 WHERE comments.blogid = ? 
 ORDER BY _created ASC`, [blogid]);
 const insert = (newComment: any) => Query<MySQLResponse>('INSERT INTO comments SET ?', newComment);
-
+const destroy = (blogid: number) => Query('DELETE FROM comments WHERE blogid = ?', [blogid])
 
 export default {
     allforBlog,
     insert,
+    destroy
 }
