@@ -33,7 +33,7 @@ const Contact = (props: ContactProps) => {
                                 <rect x="3" y="5" width="18" height="14" rx="2" />
                                 <polyline points="3 7 12 13 21 7" />
                             </svg>Email Address</label>
-                            <input type="text" className="form-control" name="email" value={email} onChange={e => setEmail(e.target.value)} />
+                            <input type="text" placeholder="Enter Your Email Address" className="form-control" name="email" value={email} onChange={e => setEmail(e.target.value)} />
 
                             <label id="label"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-forms" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -44,7 +44,7 @@ const Contact = (props: ContactProps) => {
                                 <path d="M17 12h.01" />
                                 <path d="M13 12h.01" />
                             </svg>Subject</label>
-                            <input type="text" className="form-control" name="password" value={subject} onChange={e => setSubject(e.target.value)} />
+                            <input type="text" placeholder="Enter The Subject of Your Email" className="form-control" name="password" value={subject} onChange={e => setSubject(e.target.value)} />
 
                             <label id="label"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-notebook" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -52,7 +52,7 @@ const Contact = (props: ContactProps) => {
                                 <line x1="13" y1="8" x2="15" y2="8" />
                                 <line x1="13" y1="12" x2="15" y2="12" />
                             </svg>Body</label>
-                            <textarea rows={10} className="form-control" value={body} onChange={e => setBody(e.target.value)} ></textarea>
+                            <textarea rows={10} placeholder="Enter The Body of Your Email" className="form-control" value={body} onChange={e => setBody(e.target.value)} ></textarea>
                         </div>
 
                         <div className="d-flex justify-content-end">
