@@ -13,6 +13,11 @@ const Donate = (props: DonateProps) => {
 
     const handleDonate = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        if (!name || !amount) {Swal.fire({
+            title: `Error`,
+            icon: 'error',
+            text: 'Please fill out all the required fields',
+        })} else {
         const cardElement = elements.getElement(CardElement); // we put the CardElement in a variable because we don't want to mess around with anything from stripe directly. Protects us against liability
         const { token, error } = await stripe.createToken(cardElement); // same as making a fetch request to their server without having to actually write it. We use their built in function to make the process much easier for us
          // createToken returns an object that has two properties. token and error. destructured from obj.token and obj.error
@@ -29,6 +34,7 @@ const Donate = (props: DonateProps) => {
         })
 
     }
+}
 
     return (
         <>
