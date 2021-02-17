@@ -10,27 +10,7 @@ import './middlewares/passport-strategies'; //this file will run after server ru
 const app = express();
 
 //middlewares
-// app.use(
-//     [
-//     helmet.contentSecurityPolicy({
-//       directives: {
-//         defaultSrc: ["'self'"],
-//         connectSrc: ["'self'", 'https://api.stripe.com'],
-//         frameSrc: ["'self'", 'https://js.stripe.com', 'https://hooks.stripe.com'],
-//         childSrc: ["'self'", 'https://js.stripe.com/v3/'],
-//         scriptSrc: ["'self'", 'https://js.stripe.com'],
-//         styleSrc: [
-//           "'self'",
-//           'https://fonts.googleapis.com',
-//           'https://js.stripe.com/v3/',
-//         ],
-//         fontSrc: ["'self'", 'https://fonts.gstatic.com'],
-//         imgSrc: ["'self'", 'https://*.stripe.com'],
-//         baseUri: ["'self'"],
-//       },
-//     })
-//     ]
-  // ) //security responses 
+// app.use(helmet()); //security responses 
 app.use(compression()); //speed up response time
 app.use(express.json()); //parses json
 app.use(express.static('public')); //put before morgan so logs don't clog up 

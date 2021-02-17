@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import apiService from '../../utils/api-service';
 import ReactTooltip from 'react-tooltip';
+import Swal from 'sweetalert2';
 
 
 const PostBlog = (props: PostBlogProps) => {
@@ -16,6 +17,13 @@ const PostBlog = (props: PostBlogProps) => {
     const [selectedTags, setSelectedTags] = useState(null);
 
     const postBlog = async () => {
+        if (!title || !content || !selectedTags) {
+            Swal.fire({
+                title: `Error`,
+                icon: 'error',
+                text: 'Please fill out all the required fields',
+            })
+        } else {
         await apiService('/api/blogs', 'POST', { title, content })
             .then((sqlRes) => {
                 const blogid = sqlRes.insertId
@@ -29,7 +37,7 @@ const PostBlog = (props: PostBlogProps) => {
                 console.log(err)
             })
             .then(() => { history.push('/') })
-
+        }
     }
 
     useEffect(() => {
