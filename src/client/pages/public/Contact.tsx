@@ -34,9 +34,7 @@ const Contact = (props: ContactProps) => {
                                 <polyline points="3 7 12 13 21 7" />
                             </svg>Email Address</label>
                             <input type="text" className="form-control" name="email" value={email} onChange={e => setEmail(e.target.value)} />
-                        </div>
 
-                        <div className="form-group mt-2">
                             <label id="label"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-forms" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M12 3a3 3 0 0 0 -3 3v12a3 3 0 0 0 3 3" />
@@ -47,9 +45,7 @@ const Contact = (props: ContactProps) => {
                                 <path d="M13 12h.01" />
                             </svg>Subject</label>
                             <input type="text" className="form-control" name="password" value={subject} onChange={e => setSubject(e.target.value)} />
-                        </div>
 
-                        <div className="form-group mt-2">
                             <label id="label"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-notebook" width="25" height="25" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />

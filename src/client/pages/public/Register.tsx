@@ -51,24 +51,16 @@ const Register = (props: RegisterProps) => {
                         <div className="form-group mt-4">
                             <label id="label">First Name</label>
                             <input type="text" className="form-control" name="first_name" value={values.first_name || ''} onChange={handleChanges} required/>
-                        </div>
 
-                        <div className="form-group mt-2">
                             <label id="label">Last Name</label>
                             <input type="text" className="form-control" name="last_name" value={values.last_name || ''} onChange={handleChanges} required/>
-                        </div>
 
-                        <div className="form-group mt-2">
                             <label id="label">Username</label>
                             <input type="text" className="form-control" name="username" value={values.username || ''} onChange={handleChanges} required/>
-                        </div>
 
-                        <div className="form-group mt-2">
                             <label id="label">Email Address</label>
                             <input type="text" className="form-control" name="email" value={values.email || ''} onChange={handleChanges} required/>
-                        </div>
 
-                        <div className="form-group mt-2">
                             <label id="label">Password</label>
                             <input type="password" className="form-control" name="password" value={values.password || ''} onChange={handleChanges} required/>
                         </div>
@@ -85,6 +77,7 @@ const Register = (props: RegisterProps) => {
                     </div>
                 </div>
             </div>
+
         </>
     )
 }
