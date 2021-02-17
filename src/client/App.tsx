@@ -19,6 +19,7 @@ import Contact from './pages/public/Contact';
 import Footer from './components/Footer';
 import { Elements } from '@stripe/react-stripe-js';
 import MobileNavbar from './components/MobileNavbar';
+import MobileFooter from './components/MobieFooter';
 
 
 const stripePromise = loadStripe('pk_test_51IK8ieDwWul8thRF43Y5ZoDk3jdeMYU4Ru233rwMYoGuvaxW8Fnkky2AR3YPzgthUolyuKJsXZQzLUTssv4730rh00b0RHKTm3');
@@ -26,7 +27,7 @@ const stripePromise = loadStripe('pk_test_51IK8ieDwWul8thRF43Y5ZoDk3jdeMYU4Ru233
 const App = (props: AppProps) => {
 
     const [width, setWidth] = React.useState<number>(window.innerWidth);
-    const breakpoint = 576;
+    const breakpoint = 1030;
 
     React.useEffect(() => {
         const handleWindowResize = () => setWidth(window.innerWidth);
@@ -59,7 +60,7 @@ const App = (props: AppProps) => {
                     <Route exact path='/blogs/contact'> <Contact /> </Route>
                     <Route path="*" component={NotFound} />
                 </Switch>
-                <Footer />
+                { width < breakpoint ? <MobileFooter /> : <Footer />}  
             </>
 
         </Router>

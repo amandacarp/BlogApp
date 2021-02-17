@@ -15,19 +15,19 @@ const MobileNavbar = () => {
                     <p className="lead">Welcome, please enjoy!</p>
                     <hr className="my-4"></hr>
                     <p className="lead d-flex justify-content-around">
-                        <Link to='/' id="button" className="btn shadow">
-                            Go Home
+                        <Link to='/' id="button" className="btn shadow m-2">
+                             Home
                         </Link> 
 
-                        <Link to='/blogs/post' id="button" className="btn shadow">
-                            Post a Blog
+                        <Link to='/blogs/post' id="button" className="btn shadow m-2">
+                            Post
                         </Link> 
 
-                        <Link to='/blogs/profile' id="button" className="btn shadow">
-                            Go To Your Profile
+                        <Link to='/blogs/profile' id="button" className="btn shadow m-2">
+                            Profile
                         </Link> 
 
-                        <Link to='/blogs/search' id="button" className="btn shadow">
+                        <Link to='/blogs/search' id="button" className="btn shadow m-2">
                             Search
                         </Link> 
                     </p>
@@ -44,23 +44,23 @@ const MobileNavbar = () => {
                     <p className="lead">Welcome, please enjoy!</p>
                     <hr className="my-4"></hr>
                     <p className="lead d-flex justify-content-around">
-                        <Link to='/' id="button" className="btn shadow">
-                            Go Home
+                        <Link to='/' id="button" className="btn shadow m-2">
+                            Home
                         </Link> 
 
-                        <Link to='/blogs/post' id="button" className="btn shadow">
-                            Post a Blog
+                        <Link to='/blogs/post' id="button" className="btn shadow m-2">
+                            Post
                         </Link> 
 
-                        <Link to='/blogs/register' id="button" className="btn shadow">
-                            Register New User
+                        <Link to='/blogs/register' id="button" className="btn shadow m-2">
+                            Register
                         </Link> 
 
-                        <Link to='/blogs/login' id="button" className="btn shadow">
+                        <Link to='/blogs/login' id="button" className="btn shadow m-2">
                             Login
                         </Link> 
 
-                        <Link to='/blogs/search' id="button" className="btn shadow">
+                        <Link to='/blogs/search' id="button" className="btn shadow m-2">
                             Search
                         </Link> 
                     </p>
