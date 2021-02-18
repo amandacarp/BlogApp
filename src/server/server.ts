@@ -1,5 +1,5 @@
 import * as express from 'express';
-// import * as helmet from 'helmet';
+import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as morgan from 'morgan';
 import * as path from 'path'
@@ -10,7 +10,7 @@ import './middlewares/passport-strategies'; //this file will run after server ru
 const app = express();
 
 //middlewares
-// app.use(helmet()); //security responses 
+app.use(helmet({ contentSecurityPolicy: false })) //security responses 
 app.use(compression()); //speed up response time
 app.use(express.json()); //parses json
 app.use(express.static('public')); //put before morgan so logs don't clog up 
