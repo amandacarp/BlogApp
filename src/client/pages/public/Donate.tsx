@@ -21,7 +21,7 @@ const Donate = (props: DonateProps) => {
         const cardElement = elements.getElement(CardElement); // we put the CardElement in a variable because we don't want to mess around with anything from stripe directly. Protects us against liability
         const { token, error } = await stripe.createToken(cardElement); // same as making a fetch request to their server without having to actually write it. We use their built in function to make the process much easier for us
          // createToken returns an object that has two properties. token and error. destructured from obj.token and obj.error
-        await apiService('/api/donate', "POST", { amount, token })
+        let res = await apiService('/api/donate', "POST", { amount, token })
         // we take the amount and the token from stripe and send it to our back end
         // shorthand for amount: amount and token: token
         setAmount('');
@@ -29,7 +29,7 @@ const Donate = (props: DonateProps) => {
         cardElement.clear();
         Swal.fire({
             title: 'Thank you!',
-            text: `Thank you for your donation!`,
+            text: `Thank you for your donation! View your receipt here ${res.receipt_url}`,
             icon: 'success',
         })
 
