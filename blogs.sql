@@ -9,7 +9,7 @@ CREATE TABLE Authors (
     last_name varchar(50) not null,
     username varchar(50) not null,
     email varchar(50) not null unique,
-    password varchar(80) not null,
+    password varchar(50) not null,
     _created datetime default current_timestamp on update current_timestamp);
     
     
@@ -60,5 +60,8 @@ CREATE TABLE comments (
     FOREIGN KEY (blogid)
         REFERENCES Blogs (id)
 );
+
+USE blogs;
+SELECT * FROM Authors;
 
 

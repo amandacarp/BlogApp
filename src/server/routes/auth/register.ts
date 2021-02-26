@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
         newAuthor.password = await generateHash(newAuthor.password); //right hand side of equal sign evaluates first. takes plain text pw on the req.body, passes through algorithm and generates hash and salt pw and reassigns itself to itself
         const result = await db.Authors.insert(newAuthor); //db query to register a new user to db
         const token = signToken({authorid: result.insertId, email: newAuthor.email, username: newAuthor.username}) //result.insertid is the id of who just inserted into authors table. authorid comes from Ipayload
-        //createToken takes the payload as the parameter. payload comes attached to the req.body of each user. id specifies each user
+        //signToken takes the payload as the parameter. payload comes attached to the req.body of each user. id specifies each user
         res.json(token) //returns json web token. encoded not encypted
         //token is stored in state on front end until user logs out
     } catch (error) {

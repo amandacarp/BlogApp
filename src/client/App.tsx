@@ -67,6 +67,9 @@ const App = (props: AppProps) => {
     )
 }
 
+console.log('%cLike what you see?....', 'color: black; background: white; border: 2px solid pink; font-size: large; font-weight: bold')
+console.log('%cI am looking to get hired! Contact me at carpentieri.a@gmail.com', 'color: black; background: white; border: 2px solid pink; font-size: large; font-weight: bold')
+
 interface AppProps { }
 
 export default App;
